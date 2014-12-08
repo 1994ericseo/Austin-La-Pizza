@@ -13,6 +13,8 @@ class GameScene: SKScene {
     let playButton = SKSpriteNode(imageNamed: "Play")
     let banner = SKSpriteNode(imageNamed: "Image")
     let highscore = SKSpriteNode(imageNamed: "Image")
+    let background = PlayScene()
+    
     
 
     
@@ -45,12 +47,13 @@ class GameScene: SKScene {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self) /* location of touch */
             if self.nodeAtPoint(location) == self.playButton {
-                var scene = PlayScene(size: self.size)
+                background.size = self.size
                 let skView = self.view
                 skView?.ignoresSiblingOrder = true
-                scene.scaleMode = .ResizeFill
+                background.scaleMode = .ResizeFill
                 
-                skView?.presentScene(scene)
+                
+                skView?.presentScene(background)
                 
                 
                 

@@ -9,24 +9,25 @@
 import SpriteKit
 
 
-
-
 class PlayScene: SKScene {
     let runningBar = SKSpriteNode(imageNamed: "Bar")
+    
+    
     
     var austin = SKSpriteNode()
     let austin1 = SKSpriteNode(imageNamed: "Austin1")
     let austin2 = SKSpriteNode(imageNamed: "Austin2")
     let austin3 = SKSpriteNode(imageNamed: "Austin3")
     
-    var austinTime = 0
+    var austinSpeed = 0
     var origRunningBarPosition = CGFloat(0)
     var maxBarX = CGFloat(0)
-    var groundSpeed = 5
+    var groundSpeed = 1
     var austinPosition = CGFloat(0)
     
     override func didMoveToView(view: SKView) {
         self.backgroundColor = UIColor.whiteColor()
+        
         /* floor */
         self.runningBar.anchorPoint = CGPointMake(0, 0.5)
         self.runningBar.position = CGPointMake(CGRectGetMinX(self.frame), CGRectGetMinY(self.frame) + (self.runningBar.size.height)/2)
@@ -55,27 +56,47 @@ class PlayScene: SKScene {
         self.maxBarX = self.maxBarX * -1
     }
     
+    /*override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        for touch: AnyObject in touches {
+            let location = touch.locationInNode(self) /* location of touch */
+            if self.nodeAtPoint(location) == self.playButton {
+                background.size = self.size
+                let skView = self.view
+                skView?.ignoresSiblingOrder = true
+                background.scaleMode = .ResizeFill
+                
+                
+                skView?.presentScene(background)
+                
+                
+                
+                
+            }
+        }
+        
+    } */
+    
     override func update(currentTime: NSTimeInterval) {
         if self.runningBar.position.x <= maxBarX {
             self.runningBar.position.x = self.origRunningBarPosition
         }
         
-        switch austinTime {
+        switch austinSpeed {
         case 0:
             println("0")
-            austinTime += 1
+            austinSpeed += 1
             self.austin = self.austin1
             break;
             
         case 1:
             println("1")
-            austinTime += 1
+            austinSpeed += 1
             self.austin = self.austin2
             
             break;
         default:
             println("2")
-            austinTime = 0
+            austinSpeed = 0
             self.austin = self.austin3
             
             break;
