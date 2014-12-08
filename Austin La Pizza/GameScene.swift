@@ -12,23 +12,26 @@ class GameScene: SKScene {
     
     let playButton = SKSpriteNode(imageNamed: "Play")
     let banner = SKSpriteNode(imageNamed: "Image")
-    let banner2 = SKSpriteNode(imageNamed: "Image")
+    let highscore = SKSpriteNode(imageNamed: "Image")
     
+
     
+
     
     
     override func didMoveToView(view: SKView) {
         self.playButton.position = CGPointMake(CGRectGetMidX(self.frame)-50, 100)
         self.banner.size = CGSizeMake(200, 200)
         self.banner.position = CGPointMake(CGRectGetMidX(self.frame), 500)
-        self.banner2.position = CGPointMake(CGRectGetMidX(self.frame)+50, 100)
+        self.highscore.position = CGPointMake(CGRectGetMidX(self.frame)+50, 100)
         self.addChild(banner)
-        self.addChild(banner2)
+        self.addChild(highscore)
         self.addChild(playButton)
         
         self.backgroundColor = UIColor.whiteColor()
         
     }
+    
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         for touch: AnyObject in touches {

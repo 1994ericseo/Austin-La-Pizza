@@ -23,6 +23,9 @@
 		AD71EBF21A33B36D005CBF44 /* PlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD71EBF11A33B36D005CBF44 /* PlayScene.swift */; };
 		AD71EBF41A33C0AB005CBF44 /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EBF31A33C0AB005CBF44 /* bar.png */; };
 		AD71EBF61A33C733005CBF44 /* ScoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD71EBF51A33C733005CBF44 /* ScoreScreen.swift */; };
+		AD71EBFB1A356E3E005CBF44 /* Austin1.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EBF81A356E3E005CBF44 /* Austin1.png */; };
+		AD71EBFC1A356E3E005CBF44 /* Austin2.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EBF91A356E3E005CBF44 /* Austin2.png */; };
+		AD71EBFD1A356E3E005CBF44 /* Austin3.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EBFA1A356E3E005CBF44 /* Austin3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		AD71EBF11A33B36D005CBF44 /* PlayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayScene.swift; sourceTree = "<group>"; };
 		AD71EBF31A33C0AB005CBF44 /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
 		AD71EBF51A33C733005CBF44 /* ScoreScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScoreScreen.swift; path = ../ScoreScreen.swift; sourceTree = "<group>"; };
+		AD71EBF81A356E3E005CBF44 /* Austin1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Austin1.png; sourceTree = "<group>"; };
+		AD71EBF91A356E3E005CBF44 /* Austin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Austin2.png; sourceTree = "<group>"; };
+		AD71EBFA1A356E3E005CBF44 /* Austin3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Austin3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				AD71EBED1A33A5F9005CBF44 /* Austin.GIF */,
+				AD71EBF71A356E3E005CBF44 /* AustinImage */,
 				AD71EBEB1A32762F005CBF44 /* flappy.png */,
 				AD71EBEF1A33B2F9005CBF44 /* new play.png */,
 				AD71EBF31A33C0AB005CBF44 /* bar.png */,
@@ -140,6 +147,16 @@
 				AD71EBDA1A31CBAB005CBF44 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AD71EBF71A356E3E005CBF44 /* AustinImage */ = {
+			isa = PBXGroup;
+			children = (
+				AD71EBF81A356E3E005CBF44 /* Austin1.png */,
+				AD71EBF91A356E3E005CBF44 /* Austin2.png */,
+				AD71EBFA1A356E3E005CBF44 /* Austin3.png */,
+			);
+			path = AustinImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,7 +241,10 @@
 			files = (
 				AD71EBD01A31CBAB005CBF44 /* LaunchScreen.xib in Resources */,
 				AD71EBF41A33C0AB005CBF44 /* bar.png in Resources */,
+				AD71EBFB1A356E3E005CBF44 /* Austin1.png in Resources */,
 				AD71EBCD1A31CBAB005CBF44 /* Images.xcassets in Resources */,
+				AD71EBFD1A356E3E005CBF44 /* Austin3.png in Resources */,
+				AD71EBFC1A356E3E005CBF44 /* Austin2.png in Resources */,
 				AD71EBEE1A33A5F9005CBF44 /* Austin.GIF in Resources */,
 				AD71EBF01A33B2F9005CBF44 /* new play.png in Resources */,
 				AD71EBC41A31CBAB005CBF44 /* GameScene.sks in Resources */,
