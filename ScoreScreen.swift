@@ -7,3 +7,14 @@
 //
 
 import SpriteKit
+
+
+// To set the high score
+func newHighScore(score: Int) {
+    var userDefaults = NSUserDefaults.standardUserDefaults()
+    //userDefaults.setValue(highScore, forKey: "highScore")
+    if score > userDefaults.integerForKey("highScore") {
+        userDefaults.setInteger(score, forKey: "highScore")
+        userDefaults.synchronize()
+    }
+}
