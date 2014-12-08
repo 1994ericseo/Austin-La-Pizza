@@ -15,9 +15,6 @@ class GameScene: SKScene {
     let highscore = SKSpriteNode(imageNamed: "Image")
     let background = PlayScene()
     
-    
-
-    
 
     
     
@@ -52,8 +49,9 @@ class GameScene: SKScene {
                 skView?.ignoresSiblingOrder = true
                 background.scaleMode = .ResizeFill
                 
+                var reveal = SKTransition.fadeWithColor(UIColor.blackColor(), duration: 3)
                 
-                skView?.presentScene(background)
+                skView?.presentScene(self.background)
                 
                 
                 
