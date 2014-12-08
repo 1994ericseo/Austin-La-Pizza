@@ -20,15 +20,23 @@ class GameScene: SKScene {
     
     
     override func didMoveToView(view: SKView) {
-        self.playButton.position = CGPointMake(CGRectGetMidX(self.frame)-50, 100)
+        self.backgroundColor = UIColor.whiteColor()
+        
+        self.playButton.size = CGSizeMake(50, 50)
+        self.playButton.position = CGPointMake(CGRectGetMidX(self.frame)-30, 50)
+        
         self.banner.size = CGSizeMake(200, 200)
-        self.banner.position = CGPointMake(CGRectGetMidX(self.frame), 500)
-        self.highscore.position = CGPointMake(CGRectGetMidX(self.frame)+50, 100)
+        self.banner.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 80)
+        
+        self.highscore.size = CGSizeMake(50, 50)
+        self.highscore.position = CGPointMake(CGRectGetMidX(self.frame)+30, 50)
+        
+        
         self.addChild(banner)
         self.addChild(highscore)
         self.addChild(playButton)
         
-        self.backgroundColor = UIColor.whiteColor()
+        
         
     }
     

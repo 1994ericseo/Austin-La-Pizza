@@ -32,6 +32,8 @@ class PlayScene: SKScene {
         self.runningBar.position = CGPointMake(CGRectGetMinX(self.frame), CGRectGetMinY(self.frame) + (self.runningBar.size.height)/2)
         self.addChild(self.runningBar)
         
+        
+        
         self.austin1.size = CGSizeMake(200, 200)
         self.austin1.position = CGPointMake(100,100)
         self.austin2.size = CGSizeMake(200, 200)

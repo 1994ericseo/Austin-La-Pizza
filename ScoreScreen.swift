@@ -8,13 +8,17 @@
 
 import SpriteKit
 
+class ScoreScreen: SKScene {
+    var score = 0
+    
 
-// To set the high score
-func newHighScore(score: Int) {
-    var userDefaults = NSUserDefaults.standardUserDefaults()
-    //userDefaults.setValue(highScore, forKey: "highScore")
-    if score > userDefaults.integerForKey("highScore") {
-        userDefaults.setInteger(score, forKey: "highScore")
-        userDefaults.synchronize()
+    // To set the high score
+    func newHighScore(score: Int) {
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        //userDefaults.setValue(highScore, forKey: "highScore")
+        if score > userDefaults.integerForKey("highScore") {
+            userDefaults.setInteger(score, forKey: "highScore")
+            userDefaults.synchronize()
+        }
     }
 }

@@ -26,6 +26,7 @@
 		AD71EBFB1A356E3E005CBF44 /* Austin1.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EBF81A356E3E005CBF44 /* Austin1.png */; };
 		AD71EBFC1A356E3E005CBF44 /* Austin2.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EBF91A356E3E005CBF44 /* Austin2.png */; };
 		AD71EBFD1A356E3E005CBF44 /* Austin3.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EBFA1A356E3E005CBF44 /* Austin3.png */; };
+		AD71EC071A359D47005CBF44 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC061A359D47005CBF44 /* ground.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		AD71EBF81A356E3E005CBF44 /* Austin1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Austin1.png; sourceTree = "<group>"; };
 		AD71EBF91A356E3E005CBF44 /* Austin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Austin2.png; sourceTree = "<group>"; };
 		AD71EBFA1A356E3E005CBF44 /* Austin3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Austin3.png; sourceTree = "<group>"; };
+		AD71EC061A359D47005CBF44 /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				AD71EBED1A33A5F9005CBF44 /* Austin.GIF */,
 				AD71EBF71A356E3E005CBF44 /* AustinImage */,
 				AD71EBEB1A32762F005CBF44 /* flappy.png */,
+				AD71EC061A359D47005CBF44 /* ground.png */,
 				AD71EBEF1A33B2F9005CBF44 /* new play.png */,
 				AD71EBF31A33C0AB005CBF44 /* bar.png */,
 				AD71EBE91A32755B005CBF44 /* button_black_play.png */,
@@ -241,6 +244,7 @@
 			files = (
 				AD71EBD01A31CBAB005CBF44 /* LaunchScreen.xib in Resources */,
 				AD71EBF41A33C0AB005CBF44 /* bar.png in Resources */,
+				AD71EC071A359D47005CBF44 /* ground.png in Resources */,
 				AD71EBFB1A356E3E005CBF44 /* Austin1.png in Resources */,
 				AD71EBCD1A31CBAB005CBF44 /* Images.xcassets in Resources */,
 				AD71EBFD1A356E3E005CBF44 /* Austin3.png in Resources */,
