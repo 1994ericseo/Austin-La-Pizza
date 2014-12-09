@@ -29,6 +29,7 @@
 		AD71EC091A359F20005CBF44 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC081A359F20005CBF44 /* ground.png */; };
 		AD71EC0D1A35B043005CBF44 /* gameBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC0C1A35B043005CBF44 /* gameBackground.png */; };
 		AD71EC0F1A369389005CBF44 /* Pepperoni_Pizza.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC0E1A369389005CBF44 /* Pepperoni_Pizza.png */; };
+		AD71EC111A36BA4D005CBF44 /* HighScoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD71EC101A36BA4D005CBF44 /* HighScoreScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		AD71EC081A359F20005CBF44 /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.png; sourceTree = "<group>"; };
 		AD71EC0C1A35B043005CBF44 /* gameBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameBackground.png; sourceTree = "<group>"; };
 		AD71EC0E1A369389005CBF44 /* Pepperoni_Pizza.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pepperoni_Pizza.png; sourceTree = "<group>"; };
+		AD71EC101A36BA4D005CBF44 /* HighScoreScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				AD71EBF51A33C733005CBF44 /* ScoreScreen.swift */,
 				AD71EBF11A33B36D005CBF44 /* PlayScene.swift */,
 				AD71EBC71A31CBAB005CBF44 /* GameViewController.swift */,
+				AD71EC101A36BA4D005CBF44 /* HighScoreScreen.swift */,
 				AD71EBC91A31CBAB005CBF44 /* Main.storyboard */,
 				AD71EBCC1A31CBAB005CBF44 /* Images.xcassets */,
 				AD71EBCE1A31CBAB005CBF44 /* LaunchScreen.xib */,
@@ -283,6 +286,7 @@
 			files = (
 				AD71EBC61A31CBAB005CBF44 /* GameScene.swift in Sources */,
 				AD71EBF61A33C733005CBF44 /* ScoreScreen.swift in Sources */,
+				AD71EC111A36BA4D005CBF44 /* HighScoreScreen.swift in Sources */,
 				AD71EBC81A31CBAB005CBF44 /* GameViewController.swift in Sources */,
 				AD71EBF21A33B36D005CBF44 /* PlayScene.swift in Sources */,
 				AD71EBC21A31CBAB005CBF44 /* AppDelegate.swift in Sources */,

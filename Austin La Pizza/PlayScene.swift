@@ -10,6 +10,10 @@ import SpriteKit
 
 
 class PlayScene: SKScene {
+
+    /*required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    } */
     
     var austin = SKSpriteNode()
     let austin1 = SKSpriteNode(imageNamed: "Austin1")
@@ -29,10 +33,14 @@ class PlayScene: SKScene {
     var austinPosition = CGFloat(0)
     
     
+    var touchDuration = NSDate()
+    
+    
     //test
     var pizza = SKSpriteNode()
     
     override func didMoveToView(view: SKView) {
+        
         //setting background color to white
         self.backgroundColor = UIColor.whiteColor()
         
@@ -64,18 +72,22 @@ class PlayScene: SKScene {
         
         
         
+        /* austin */
+        
+        let austinTexture1 = SKTexture(imageNamed: "Austin1")
+        let austinTexture2 = SKTexture(imageNamed: "Austin2")
+        let austinTexture3 = SKTexture(imageNamed: "Austin3")
+        
+        var austinList = [austinTexture1, austinTexture2, austinTexture3]
         
         self.austin1.size = CGSizeMake(200, 200)
         self.austin1.position = CGPointMake(100,100)
-        self.austin2.size = CGSizeMake(200, 200)
-        self.austin2.position = CGPointMake(100,100)
-        self.austin3.size = CGSizeMake(200, 200)
-        self.austin3.position = CGPointMake(100,100)
         
         
-        /* austin */
+        var action = SKAction.repeatActionForever(SKAction.animateWithTextures(austinList, timePerFrame: 0.2, resize: false, restore: true))
         
         self.austin = austin1
+        self.austin.runAction(action)
         //self.addChild(self.background)
         self.addChild(self.runningBar)
         self.addChild(self.austin)
@@ -94,6 +106,7 @@ class PlayScene: SKScene {
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        self.touchDuration = NSDate()
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self) /* location of touch */
             self.pizza.position = location
@@ -112,6 +125,10 @@ class PlayScene: SKScene {
             }*/
         }
         
+    }
+    
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        //self.touchDuration = NSDate() - self.touchDuration
     }
     
     override func update(currentTime: NSTimeInterval) {

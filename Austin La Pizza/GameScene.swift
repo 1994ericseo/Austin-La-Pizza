@@ -52,15 +52,18 @@ class GameScene: SKScene {
                 skView?.ignoresSiblingOrder = true
                 self.game.scaleMode = .ResizeFill
                 
-                var reveal = SKTransition.fadeWithColor(UIColor.blackColor(), duration: 3)
+                var reveal = SKTransition.fadeWithColor(UIColor.whiteColor(), duration: 0.5)
                 
-                skView?.presentScene(self.game)
+                skView?.presentScene(self.game, transition: reveal)
             }
             if self.nodeAtPoint(location) == self.highscore {
                 self.score.size = self.size
                 self.view?.ignoresSiblingOrder = true
                 self.score.scaleMode = .ResizeFill
-                self.view?.presentScene(self.score)
+                
+                var reveal = SKTransition.fadeWithColor(UIColor.whiteColor(), duration: 0.5)
+                
+                self.view?.presentScene(self.score, transition: reveal)
             }
         }
         
