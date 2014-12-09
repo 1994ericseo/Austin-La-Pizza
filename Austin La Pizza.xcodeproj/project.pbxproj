@@ -37,6 +37,7 @@
 		AD71EC1E1A378179005CBF44 /* pizzaRocket2.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC171A378179005CBF44 /* pizzaRocket2.png */; };
 		AD71EC1F1A378179005CBF44 /* pizzaWing1.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC181A378179005CBF44 /* pizzaWing1.png */; };
 		AD71EC201A378179005CBF44 /* pizzaWing2.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC191A378179005CBF44 /* pizzaWing2.png */; };
+		AD71EC221A378AC3005CBF44 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC211A378AC3005CBF44 /* pause.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		AD71EC171A378179005CBF44 /* pizzaRocket2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pizzaRocket2.png; sourceTree = "<group>"; };
 		AD71EC181A378179005CBF44 /* pizzaWing1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pizzaWing1.png; sourceTree = "<group>"; };
 		AD71EC191A378179005CBF44 /* pizzaWing2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pizzaWing2.png; sourceTree = "<group>"; };
+		AD71EC211A378AC3005CBF44 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				AD71EC081A359F20005CBF44 /* ground.png */,
 				AD71EC0E1A369389005CBF44 /* Pepperoni_Pizza.png */,
 				AD71EC0C1A35B043005CBF44 /* gameBackground.png */,
+				AD71EC211A378AC3005CBF44 /* pause.png */,
 				AD71EBEF1A33B2F9005CBF44 /* new play.png */,
 				AD71EBF31A33C0AB005CBF44 /* bar.png */,
 				AD71EBE91A32755B005CBF44 /* button_black_play.png */,
@@ -282,6 +285,7 @@
 			files = (
 				AD71EBD01A31CBAB005CBF44 /* LaunchScreen.xib in Resources */,
 				AD71EBF41A33C0AB005CBF44 /* bar.png in Resources */,
+				AD71EC221A378AC3005CBF44 /* pause.png in Resources */,
 				AD71EC1D1A378179005CBF44 /* pizzaRocket1.png in Resources */,
 				AD71EBFB1A356E3E005CBF44 /* Austin1.png in Resources */,
 				AD71EBCD1A31CBAB005CBF44 /* Images.xcassets in Resources */,

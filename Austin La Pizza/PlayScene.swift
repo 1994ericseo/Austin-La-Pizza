@@ -19,19 +19,34 @@ class PlayScene: SKScene {
     let austin1 = SKSpriteNode(imageNamed: "Austin1")
     let austin2 = SKSpriteNode(imageNamed: "Austin2")
     let austin3 = SKSpriteNode(imageNamed: "Austin3")
-    let menuButton = SKSpriteNode(imageNamed: "Play")
+    let playButton = SKTexture(imageNamed: "Play")
+    let pauseTexture = SKTexture(imageNamed: "pause")
+    let pauseButton = SKSpriteNode(imageNamed: "pause")
     let background = SKSpriteNode(imageNamed: "gameBackground")
+    
+    let pizzaLegs1 = SKSpriteNode(imageNamed: "pizzaLegs1")
+    let pizzaLegsTxt1 = SKTexture(imageNamed: "pizzaLegs1")
+    let pizzaLegsTxt2 = SKTexture(imageNamed: "pizzaLegs2")
+    
+    let pizzaRocket1 = SKSpriteNode(imageNamed: "pizzaRocket1")
+    let pizzaRocketTxt1 = SKTexture(imageNamed: "pizzaRocket1")
+    let pizzaRocketTxt2 = SKTexture(imageNamed: "pizzaRocket2")
+    
+    let pizzaWing1 = SKSpriteNode(imageNamed: "pizzaWing1")
+    let pizzaWingTxt1 = SKTexture(imageNamed: "pizzaWing1")
+    let pizzaWingTxt2 = SKTexture(imageNamed: "pizzaWing2")
+    
+    let pizzaFlap = SKSpriteNode(imageNamed: "pizzaFlap")
+    
     
     let runningBar = SKSpriteNode(imageNamed: "Bar")
     
-    var austinSpeed = 0
     var origRunningBarPosition = CGFloat(0)
     var origBackgroundPosition = CGFloat(0)
     var maxBackgroundX = CGFloat(0)
     var maxBarX = CGFloat(0)
     var groundSpeed = 3
     var backgroundSpeed = 5
-    var austinPosition = CGFloat(0)
     
     
     var touchDuration = NSDate()
@@ -48,9 +63,11 @@ class PlayScene: SKScene {
         //setting gravity
         self.physicsWorld.gravity = CGVectorMake(0.0, -5.0)
         
-        //menu button
-        self.menuButton.size = CGSizeMake(50, 50)
-        self.menuButton.position = CGPointMake(CGRectGetMaxX(self.frame) - 30, CGRectGetMaxY(self.frame) - 30)
+        //pause button
+        self.pauseButton.size = CGSizeMake(50, 50)
+        self.pauseButton.position = CGPointMake(CGRectGetMaxX(self.frame) - 30, CGRectGetMaxY(self.frame) - 30)
+        
+        
         
         
         /* floor */
@@ -63,10 +80,42 @@ class PlayScene: SKScene {
         self.background.size = CGSizeMake(4000,400)
         self.background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame)+30)
         
+        /* pizza boxes__________________________________________________ */
+        let size = CGSizeMake(164, 164)
+        
+            //pizza Wing
+        self.pizzaWing1.size = size
+        self.pizzaFlap.size = CGSizeMake(164, 164)
+        //self.pizzaWing1.physicsBody = SKPhysicsBody(circleOfRadius: self.pizzaWing1.size.height/2.0)
+        //self.pizzaFlap.physicsBody = SKPhysicsBody(circleOfRadius: self.pizzaWing1.size.height/2.0)
+        self.pizzaWing1.position = CGPointMake(300, 350)
+        self.pizzaFlap.position = CGPointMake(300, 350)
+        var wingList = [self.pizzaWingTxt1, self.pizzaWingTxt2]
+        var wingAction = SKAction.repeatActionForever(SKAction.animateWithTextures(wingList, timePerFrame: 0.3, resize: false, restore: true))
+        self.pizzaWing1.runAction(wingAction)
+        
+            //pizza Legs
+        self.pizzaLegs1.size = size
+        self.pizzaLegs1.position = CGPointMake(450, 295)
+        var pizzaFlap2 = self.pizzaFlap.copy() as SKSpriteNode
+        pizzaFlap2.position = CGPointMake(450, 350)
+        //self.pizzaLegs1.physicsBody = SKPhysicsBody(circleOfRadius: self.pizzaLegs1.size.height/2.0)
+        var legList = [self.pizzaLegsTxt1, self.pizzaLegsTxt2]
+        var legAction = SKAction.repeatActionForever(SKAction.animateWithTextures(legList, timePerFrame: 0.3, resize: false, restore: true))
+        self.pizzaLegs1.runAction(legAction)
+        
+            //pizza Rocket
+        self.pizzaRocket1.size = size
+        self.pizzaRocket1.position = CGPointMake(400, 175)
+        var pizzaFlap3 = self.pizzaFlap.copy() as SKSpriteNode
+        pizzaFlap3.position = CGPointMake(400, 200)
+        //self.pizzaRocket1.physicsBody = SKPhysicsBody(circleOfRadius: self.pizzaRocket1.size.height/2.0)
+        var rocketList = [self.pizzaRocketTxt1, self.pizzaRocketTxt2]
+        var rocketAction = SKAction.repeatActionForever(SKAction.animateWithTextures(rocketList, timePerFrame: 0.3, resize: false, restore: true))
+        self.pizzaRocket1.runAction(rocketAction)
         
         
-        /* austin */
-        
+        /* austin_____________________________________________________ */
         let austinTexture1 = SKTexture(imageNamed: "Austin1")
         let austinTexture2 = SKTexture(imageNamed: "Austin2")
         let austinTexture3 = SKTexture(imageNamed: "Austin3")
@@ -81,10 +130,20 @@ class PlayScene: SKScene {
         
         self.austin = austin1
         self.austin.runAction(action)
-        //self.addChild(self.background)
+        
         self.addChild(self.runningBar)
         self.addChild(self.austin)
-        self.addChild(self.menuButton)
+        self.addChild(self.pauseButton)
+        self.addChild(self.pizzaFlap)
+        self.addChild(self.pizzaWing1)
+        self.addChild(pizzaFlap2)
+        self.addChild(self.pizzaLegs1)
+        self.addChild(pizzaFlap3)
+        self.addChild(self.pizzaRocket1)
+        
+        
+        var joint = SKPhysicsJointFixed.jointWithBodyA(self.pizzaWing1.physicsBody, bodyB: self.pizzaFlap.physicsBody, anchor: CGPointMake(self.pizzaWing1.position.x, self.pizzaWing1.position.y-30))
+        //self.scene?.physicsWorld.addJoint(joint)
         
         
         /* go back to original sizes */
@@ -103,13 +162,33 @@ class PlayScene: SKScene {
         self.touchDuration = NSDate()
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self) /* location of touch */
-            if location == self.menuButton.position {
+            if self.nodeAtPoint(location) == self.pauseButton && self.view?.scene?.paused == false {
                 var menu = GameScene()
+                menu.size = self.size
                 menu.scaleMode = .ResizeFill
                 self.view?.ignoresSiblingOrder = true
-                self.view?.presentScene(menu)
+                
+                var close = SKTransition.doorsCloseVerticalWithDuration(0.5)
+                
+                
+                //switch to play button
+                
+                self.view?.scene?.paused = true
+                
                 
             }
+            else if self.nodeAtPoint(location) == self.pauseButton && self.view?.scene?.paused == true {
+                
+                //switch to pause button
+                var switchToPlay = SKAction.setTexture(self.pauseTexture)
+                self.pauseButton.runAction(switchToPlay)
+                
+                self.view?.scene?.paused = false
+                
+                
+            }
+            
+            
         }
         
     }
@@ -136,23 +215,12 @@ class PlayScene: SKScene {
         
             for touch: AnyObject in touches {
                 let location = touch.locationInNode(self) /* location of touch */
-                if self.nodeAtPoint(location) == self.menuButton {
-                    var menuBackground = GameScene()
-                    menuBackground.size = self.size
-                    let skView = self.view
-                    skView?.ignoresSiblingOrder = true
-                    menuBackground.scaleMode = .ResizeFill
-                    
-                    var close = SKTransition.doorsCloseVerticalWithDuration(0.5)
-                    
-                    skView?.presentScene(menuBackground, transition: close)
-                    
-                }
-                if (location.x >= pizza.position.x - 30) && (self.nodeAtPoint(location) != self.menuButton) {
-                    pizza.physicsBody?.velocity = CGVector(dx: velocity, dy: velocity)
-
                 
-                    pizza.physicsBody?.applyImpulse((CGVector(dx: (location.x-pizza.position.x)*velocity, dy: (location.y-pizza.position.y)*velocity)))
+                if location != self.pauseButton.position {
+                    if location.x >= pizza.position.x - 30 {
+                        pizza.physicsBody?.velocity = CGVector(dx: velocity, dy: velocity)
+                        pizza.physicsBody?.applyImpulse((CGVector(dx: (location.x-pizza.position.x)*velocity, dy: (location.y-pizza.position.y)*velocity)))
+                    }
                 }
             }
         
@@ -167,11 +235,16 @@ class PlayScene: SKScene {
             self.background.position.x = self.origBackgroundPosition
         } */
         
+        if self.scene?.paused == true {
+            
+        }
         
         //move the background
         //background.position.x -= CGFloat(self.backgroundSpeed)
         
         //move the ground
-        runningBar.position.x -= CGFloat(self.groundSpeed)
+        if self.scene?.paused == false {
+            runningBar.position.x -= CGFloat(self.groundSpeed)
+        }
     }
 }
