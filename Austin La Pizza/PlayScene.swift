@@ -19,6 +19,7 @@ class PlayScene: SKScene {
     let austin1 = SKSpriteNode(imageNamed: "Austin1")
     let austin2 = SKSpriteNode(imageNamed: "Austin2")
     let austin3 = SKSpriteNode(imageNamed: "Austin3")
+    let menuButton = SKSpriteNode(imageNamed: "Play")
     let background = SKSpriteNode(imageNamed: "gameBackground")
     
     let runningBar = SKSpriteNode(imageNamed: "Bar")
@@ -37,28 +38,20 @@ class PlayScene: SKScene {
     
     
     //test
-    var pizza = SKSpriteNode()
+
     
     override func didMoveToView(view: SKView) {
         
         //setting background color to white
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.blackColor()
         
         //setting gravity
         self.physicsWorld.gravity = CGVectorMake(0.0, -5.0)
         
-        //pizza
-        var pizzaTexture = SKTexture(imageNamed: "pizza")
-        pizzaTexture.filteringMode = SKTextureFilteringMode.Nearest
+        //menu button
+        self.menuButton.size = CGSizeMake(50, 50)
+        self.menuButton.position = CGPointMake(CGRectGetMaxX(self.frame) - 30, CGRectGetMaxY(self.frame) - 30)
         
-        pizza = SKSpriteNode(texture: pizzaTexture)
-        pizza.setScale(0.2)
-        pizza.position = CGPointMake(self.frame.size.width * 0.35, self.frame.size.height * 0.6)
-        pizza.physicsBody = SKPhysicsBody(circleOfRadius: pizza.size.height/2.0)
-        pizza.physicsBody?.dynamic = true
-        pizza.physicsBody?.allowsRotation = true
-        
-        self.addChild(pizza)
         
         /* floor */
         self.runningBar.anchorPoint = CGPointMake(0, 0.5)
@@ -91,6 +84,7 @@ class PlayScene: SKScene {
         //self.addChild(self.background)
         self.addChild(self.runningBar)
         self.addChild(self.austin)
+        self.addChild(self.menuButton)
         
         
         /* go back to original sizes */
@@ -109,26 +103,60 @@ class PlayScene: SKScene {
         self.touchDuration = NSDate()
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self) /* location of touch */
-            self.pizza.position = location
-            /*if self.nodeAtPoint(location) == self.playButton {
-                background.size = self.size
-                let skView = self.view
-                skView?.ignoresSiblingOrder = true
-                background.scaleMode = .ResizeFill
+            if location == self.menuButton.position {
+                var menu = GameScene()
+                menu.scaleMode = .ResizeFill
+                self.view?.ignoresSiblingOrder = true
+                self.view?.presentScene(menu)
                 
-                
-                skView?.presentScene(background)
-                
-                
-                
-                
-            }*/
+            }
         }
         
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        //self.touchDuration = NSDate() - self.touchDuration
+        
+        var pizzaTexture = SKTexture(imageNamed: "pizza")
+        pizzaTexture.filteringMode = SKTextureFilteringMode.Nearest
+        
+        var pizza = SKSpriteNode(texture: pizzaTexture)
+        
+        pizza = SKSpriteNode(texture: pizzaTexture)
+        pizza.setScale(0.2)
+        
+        pizza.physicsBody = SKPhysicsBody(circleOfRadius: pizza.size.height/2.0)
+        pizza.physicsBody?.dynamic = true
+        pizza.physicsBody?.allowsRotation = true
+        
+        
+        self.addChild(pizza)
+        //pizza.position = self.austin.position;
+        pizza.position = CGPointMake(self.austin.size.width - 50, self.austin.size.height - 70)
+        let velocity = CGFloat(NSDate().timeIntervalSinceDate(self.touchDuration))/5 + 0.2
+        
+            for touch: AnyObject in touches {
+                let location = touch.locationInNode(self) /* location of touch */
+                if self.nodeAtPoint(location) == self.menuButton {
+                    var menuBackground = GameScene()
+                    menuBackground.size = self.size
+                    let skView = self.view
+                    skView?.ignoresSiblingOrder = true
+                    menuBackground.scaleMode = .ResizeFill
+                    
+                    var close = SKTransition.doorsCloseVerticalWithDuration(0.5)
+                    
+                    skView?.presentScene(menuBackground, transition: close)
+                    
+                }
+                if (location.x >= pizza.position.x - 30) && (self.nodeAtPoint(location) != self.menuButton) {
+                    pizza.physicsBody?.velocity = CGVector(dx: velocity, dy: velocity)
+
+                
+                    pizza.physicsBody?.applyImpulse((CGVector(dx: (location.x-pizza.position.x)*velocity, dy: (location.y-pizza.position.y)*velocity)))
+                }
+            }
+        
+        
     }
     
     override func update(currentTime: NSTimeInterval) {

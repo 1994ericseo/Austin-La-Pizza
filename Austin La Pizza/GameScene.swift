@@ -13,14 +13,29 @@ class GameScene: SKScene {
     let playButton = SKSpriteNode(imageNamed: "Play")
     let banner = SKSpriteNode(imageNamed: "Image")
     let highscore = SKSpriteNode(imageNamed: "Image")
+    let austin = SKSpriteNode(imageNamed: "Austin1")
     let game = PlayScene()
-    let score = ScoreScreen()
+    let score = HighScoreScreen()
+    
     
 
     
     
     override func didMoveToView(view: SKView) {
         self.backgroundColor = UIColor.whiteColor()
+        
+        let austinTexture1 = SKTexture(imageNamed: "Austin1")
+        let austinTexture2 = SKTexture(imageNamed: "Austin2")
+        let austinTexture3 = SKTexture(imageNamed: "Austin3")
+        
+        var austinList = [austinTexture1, austinTexture2, austinTexture3]
+        
+        self.austin.size = CGSizeMake(200, 200)
+        self.austin.position = CGPointMake(100,100)
+        var action = SKAction.repeatActionForever(SKAction.animateWithTextures(austinList, timePerFrame: 0.2, resize: false, restore: true))
+        
+        self.austin.runAction(action)
+        self.addChild(self.austin)
         
         
         
@@ -33,10 +48,16 @@ class GameScene: SKScene {
         self.highscore.size = CGSizeMake(50, 50)
         self.highscore.position = CGPointMake(CGRectGetMidX(self.frame)+30, 50)
         
+        /*var nodeAction = SKAction.fadeInWithDuration(NSTimeInterval(2.0))
+        self.banner.runAction(nodeAction)
+        self.playButton.runAction(nodeAction)
+        self.highscore.runAction(nodeAction) */
         
-        self.addChild(banner)
-        self.addChild(highscore)
-        self.addChild(playButton)
+        self.addChild(self.banner)
+        self.addChild(self.highscore)
+        self.addChild(self.playButton)
+        
+        
         
         
         
@@ -52,7 +73,7 @@ class GameScene: SKScene {
                 skView?.ignoresSiblingOrder = true
                 self.game.scaleMode = .ResizeFill
                 
-                var reveal = SKTransition.fadeWithColor(UIColor.whiteColor(), duration: 0.5)
+                var reveal = SKTransition.doorsOpenVerticalWithDuration(0.5)
                 
                 skView?.presentScene(self.game, transition: reveal)
             }
@@ -61,9 +82,8 @@ class GameScene: SKScene {
                 self.view?.ignoresSiblingOrder = true
                 self.score.scaleMode = .ResizeFill
                 
-                var reveal = SKTransition.fadeWithColor(UIColor.whiteColor(), duration: 0.5)
-                
-                self.view?.presentScene(self.score, transition: reveal)
+                var open = SKTransition.doorsOpenHorizontalWithDuration(0.5)
+                self.view?.presentScene(self.score, transition: open)
             }
         }
         

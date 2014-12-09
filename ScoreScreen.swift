@@ -59,6 +59,7 @@ class ScoreScreen: SKScene {
                 skView?.ignoresSiblingOrder = true
                 gameBackground.scaleMode = .ResizeFill
                 
+                
                 var reveal = SKTransition.fadeWithColor(UIColor.whiteColor(), duration: 0.5)
                 
                 skView?.presentScene(gameBackground, transition: reveal)
@@ -70,6 +71,7 @@ class ScoreScreen: SKScene {
                 let skView = self.view
                 skView?.ignoresSiblingOrder = true
                 menuBackground.scaleMode = .ResizeFill
+                
                 
                 var reveal = SKTransition.fadeWithColor(UIColor.whiteColor(), duration: 0.5)
                 

@@ -21,7 +21,7 @@ class HighScoreScreen: SKScene {
         self.highScoreBanner.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 80)
         
         self.goHomeButton.size = CGSizeMake(50, 50)
-        self.goHomeButton.position = CGPointMake(CGRectGetMidX(self.frame)+30, 50)
+        self.goHomeButton.position = CGPointMake(CGRectGetMidX(self.frame), 50)
         
         self.addChild(highScoreBanner)
         self.addChild(goHomeButton)
@@ -38,9 +38,9 @@ class HighScoreScreen: SKScene {
                 skView?.ignoresSiblingOrder = true
                 menuBackground.scaleMode = .ResizeFill
                 
-                var reveal = SKTransition.fadeWithColor(UIColor.whiteColor(), duration: 0.5)
+                var close = SKTransition.doorsCloseHorizontalWithDuration(0.5)
                 
-                skView?.presentScene(menuBackground, transition: reveal)
+                skView?.presentScene(menuBackground, transition: close)
                 
             }
         }
