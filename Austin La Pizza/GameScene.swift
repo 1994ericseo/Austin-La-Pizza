@@ -13,13 +13,16 @@ class GameScene: SKScene {
     let playButton = SKSpriteNode(imageNamed: "Play")
     let banner = SKSpriteNode(imageNamed: "Image")
     let highscore = SKSpriteNode(imageNamed: "Image")
-    let background = PlayScene()
+    let game = PlayScene()
+    let score = ScoreScreen()
     
 
     
     
     override func didMoveToView(view: SKView) {
         self.backgroundColor = UIColor.whiteColor()
+        
+        
         
         self.playButton.size = CGSizeMake(50, 50)
         self.playButton.position = CGPointMake(CGRectGetMidX(self.frame)-30, 50)
@@ -44,18 +47,20 @@ class GameScene: SKScene {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self) /* location of touch */
             if self.nodeAtPoint(location) == self.playButton {
-                background.size = self.size
+                self.game.size = self.size
                 let skView = self.view
                 skView?.ignoresSiblingOrder = true
-                background.scaleMode = .ResizeFill
+                self.game.scaleMode = .ResizeFill
                 
                 var reveal = SKTransition.fadeWithColor(UIColor.blackColor(), duration: 3)
                 
-                skView?.presentScene(self.background)
-                
-                
-                
-                
+                skView?.presentScene(self.game)
+            }
+            if self.nodeAtPoint(location) == self.highscore {
+                self.score.size = self.size
+                self.view?.ignoresSiblingOrder = true
+                self.score.scaleMode = .ResizeFill
+                self.view?.presentScene(self.score)
             }
         }
         

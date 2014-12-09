@@ -27,6 +27,8 @@
 		AD71EBFC1A356E3E005CBF44 /* Austin2.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EBF91A356E3E005CBF44 /* Austin2.png */; };
 		AD71EBFD1A356E3E005CBF44 /* Austin3.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EBFA1A356E3E005CBF44 /* Austin3.png */; };
 		AD71EC091A359F20005CBF44 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC081A359F20005CBF44 /* ground.png */; };
+		AD71EC0D1A35B043005CBF44 /* gameBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC0C1A35B043005CBF44 /* gameBackground.png */; };
+		AD71EC0F1A369389005CBF44 /* Pepperoni_Pizza.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC0E1A369389005CBF44 /* Pepperoni_Pizza.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		AD71EBF91A356E3E005CBF44 /* Austin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Austin2.png; sourceTree = "<group>"; };
 		AD71EBFA1A356E3E005CBF44 /* Austin3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Austin3.png; sourceTree = "<group>"; };
 		AD71EC081A359F20005CBF44 /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.png; sourceTree = "<group>"; };
+		AD71EC0C1A35B043005CBF44 /* gameBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameBackground.png; sourceTree = "<group>"; };
+		AD71EC0E1A369389005CBF44 /* Pepperoni_Pizza.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pepperoni_Pizza.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,9 +110,9 @@
 			isa = PBXGroup;
 			children = (
 				AD71EBC11A31CBAB005CBF44 /* AppDelegate.swift */,
-				AD71EBF51A33C733005CBF44 /* ScoreScreen.swift */,
 				AD71EBC31A31CBAB005CBF44 /* GameScene.sks */,
 				AD71EBC51A31CBAB005CBF44 /* GameScene.swift */,
+				AD71EBF51A33C733005CBF44 /* ScoreScreen.swift */,
 				AD71EBF11A33B36D005CBF44 /* PlayScene.swift */,
 				AD71EBC71A31CBAB005CBF44 /* GameViewController.swift */,
 				AD71EBC91A31CBAB005CBF44 /* Main.storyboard */,
@@ -126,6 +130,8 @@
 				AD71EBF71A356E3E005CBF44 /* AustinImage */,
 				AD71EBEB1A32762F005CBF44 /* flappy.png */,
 				AD71EC081A359F20005CBF44 /* ground.png */,
+				AD71EC0E1A369389005CBF44 /* Pepperoni_Pizza.png */,
+				AD71EC0C1A35B043005CBF44 /* gameBackground.png */,
 				AD71EBEF1A33B2F9005CBF44 /* new play.png */,
 				AD71EBF31A33C0AB005CBF44 /* bar.png */,
 				AD71EBE91A32755B005CBF44 /* button_black_play.png */,
@@ -247,6 +253,7 @@
 				AD71EBFB1A356E3E005CBF44 /* Austin1.png in Resources */,
 				AD71EBCD1A31CBAB005CBF44 /* Images.xcassets in Resources */,
 				AD71EBFD1A356E3E005CBF44 /* Austin3.png in Resources */,
+				AD71EC0F1A369389005CBF44 /* Pepperoni_Pizza.png in Resources */,
 				AD71EBFC1A356E3E005CBF44 /* Austin2.png in Resources */,
 				AD71EBEE1A33A5F9005CBF44 /* Austin.GIF in Resources */,
 				AD71EBF01A33B2F9005CBF44 /* new play.png in Resources */,
@@ -255,6 +262,7 @@
 				AD71EBCB1A31CBAB005CBF44 /* Main.storyboard in Resources */,
 				AD71EBE81A327345005CBF44 /* banner.png in Resources */,
 				AD71EBEA1A32755B005CBF44 /* button_black_play.png in Resources */,
+				AD71EC0D1A35B043005CBF44 /* gameBackground.png in Resources */,
 				AD71EBEC1A32762F005CBF44 /* flappy.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
