@@ -135,33 +135,10 @@ class PlayScene: SKScene {
         if self.runningBar.position.x <= maxBarX {
             self.runningBar.position.x = self.origRunningBarPosition
         }
-        if self.background.position.x <= maxBackgroundX {
+        /*if self.background.position.x <= maxBackgroundX {
             self.background.position.x = self.origBackgroundPosition
-        }
+        } */
         
-        switch austinSpeed {
-        case 0:
-            println("0")
-            austinSpeed += 1
-            self.austin = self.austin1
-            break;
-            
-        case 1:
-            println("1")
-            austinSpeed += 1
-            self.austin = self.austin2
-            
-            break;
-        default:
-            println("2")
-            austinSpeed = 0
-            self.austin = self.austin3
-            
-            break;
-        }
-        //if make, increase groundSpeed
-        
-        //if miss, decrease groundSpeed
         
         //move the background
         //background.position.x -= CGFloat(self.backgroundSpeed)
