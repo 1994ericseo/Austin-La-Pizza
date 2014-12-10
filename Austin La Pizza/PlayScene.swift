@@ -41,13 +41,14 @@ class PlayScene: SKScene {
     let pizzaRocketTxt2 = SKTexture(imageNamed: "pizzaRocket2")
     
     
-    let pizzaWingTxt1 = SKTexture(imageNamed: "pizzaWing1")
-    let pizzaWingTxt2 = SKTexture(imageNamed: "pizzaWing2")
+    
     
     
     //test images
     let pizzaWing = SKSpriteNode(imageNamed: "pizzaWing1")
-    let pizzaWing2 = SKTexture(imageNamed: "pizzaWing2")
+    let pizzaWingTxt1 = SKTexture(imageNamed: "pizzaWing1")
+    let pizzaWingTxt2 = SKTexture(imageNamed: "pizzaWing2")
+    
     
     let pizzaFlap = SKSpriteNode(imageNamed: "pizzaFlap")
     
@@ -102,11 +103,15 @@ class PlayScene: SKScene {
         
         //piza wing
         self.pizzaWing.size = size
-        self.pizzaWing.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame)+30)
+        self.pizzaWing.position = CGPointMake(CGRectGetMaxX(self.frame)+150, CGRectGetMidY(self.frame)+30)
         self.pizzaWing.physicsBody = SKPhysicsBody(texture: self.pizzaWing.texture, size: self.pizzaWing.size)
         self.pizzaWing.physicsBody?.affectedByGravity = false
         self.pizzaWing.physicsBody?.dynamic = false
         
+        var pizzaWingList = [self.pizzaWingTxt1, self.pizzaWingTxt2]
+        var pizzaWingAnimation = SKAction.repeatActionForever(SKAction.animateWithTextures(pizzaWingList, timePerFrame: 0.2, resize: false, restore: true))
+        
+        self.pizzaWing.runAction(pizzaWingAnimation)
         self.addChild(self.pizzaWing)
         
             //pizza Wing
@@ -269,10 +274,10 @@ class PlayScene: SKScene {
             self.background.position.x = self.origBackgroundPosition
         } */
         
-        /*var moveWing = SKAction.moveTo(CGPointMake(-300, pizzaWing1.position.y), duration: 5)
-        self.pizzaWing1.runAction(moveWing)
+        var moveWing = SKAction.moveTo(CGPointMake(-300, pizzaWing.position.y), duration: 5)
+        self.pizzaWing.runAction(moveWing)
         
-        var moveLegs = SKAction.moveTo(CGPointMake(-300, pizzaLegs1.position.y), duration: 5)
+        /*var moveLegs = SKAction.moveTo(CGPointMake(-300, pizzaLegs1.position.y), duration: 5)
         self.pizzaLegs1.runAction(moveLegs) */
         
         
