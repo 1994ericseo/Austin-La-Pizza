@@ -30,6 +30,9 @@ class PlayScene: SKScene {
     let pauseButton = SKSpriteNode(imageNamed: "pause")
     let background = SKSpriteNode(imageNamed: "gameBackground")
     
+    let replayButton = SKSpriteNode(imageNamed: "Replay")
+    let goHomeButton = SKSpriteNode(imageNamed: "Home")
+    
     let pizzaLegs1 = SKSpriteNode(imageNamed: "pizzaLegs1")
     let pizzaLegsTxt1 = SKTexture(imageNamed: "pizzaLegs1")
     let pizzaLegsTxt2 = SKTexture(imageNamed: "pizzaLegs2")
@@ -177,13 +180,13 @@ class PlayScene: SKScene {
         
         self.addChild(self.runningBar)
         self.addChild(self.austin)
-        self.addChild(self.pauseButton)
         self.addChild(self.pizzaFlap)
         self.addChild(self.pizzaWing1)
         self.addChild(pizzaFlap2)
         self.addChild(self.pizzaLegs1)
         self.addChild(pizzaFlap3)
         self.addChild(self.pizzaRocket1)
+        self.addChild(self.pauseButton)
         
         
         var wing = SKPhysicsJointFixed.jointWithBodyA(self.pizzaWing1.physicsBody, bodyB: self.pizzaFlap.physicsBody, anchor: CGPointMake(self.pizzaWing1.position.x, self.pizzaWing1.position.y-30))
@@ -218,7 +221,14 @@ class PlayScene: SKScene {
                 
                 self.pauseButton.texture = self.playButton
                 
+                self.replayButton.size = CGSizeMake(50, 50)
+                self.replayButton.position = CGPointMake(CGRectGetMidX(self.frame)-30, 70)
                 
+                self.goHomeButton.size = CGSizeMake(50, 50)
+                self.goHomeButton.position = CGPointMake(CGRectGetMidX(self.frame)+30, 70)
+                
+                self.addChild(goHomeButton)
+                self.addChild(replayButton)
                 
                 //switch to play button
                 
@@ -229,10 +239,39 @@ class PlayScene: SKScene {
             else if self.nodeAtPoint(location) == self.pauseButton && self.view?.scene?.paused == true {
                 
                 //switch to pause button
+                self.goHomeButton.removeFromParent()
+                self.replayButton.removeFromParent()
                 
                 self.pauseButton.texture = self.pauseTexture
                 self.view?.scene?.paused = false
                 
+                
+            }
+            
+            if self.nodeAtPoint(location) == self.replayButton {
+                var gameBackground = PlayScene()
+                gameBackground.size = self.size
+                let skView = self.view
+                skView?.ignoresSiblingOrder = true
+                gameBackground.scaleMode = .ResizeFill
+                
+                
+                var reveal = SKTransition.fadeWithColor(UIColor.whiteColor(), duration: 0.5)
+                
+                skView?.presentScene(gameBackground, transition: reveal)
+            }
+            
+            if self.nodeAtPoint(location) == goHomeButton {
+                var menuBackground = GameScene()
+                menuBackground.size = self.size
+                let skView = self.view
+                skView?.ignoresSiblingOrder = true
+                menuBackground.scaleMode = .ResizeFill
+                
+                
+                var reveal = SKTransition.fadeWithColor(UIColor.whiteColor(), duration: 0.5)
+                
+                skView?.presentScene(menuBackground, transition: reveal)
                 
             }
             
@@ -264,7 +303,7 @@ class PlayScene: SKScene {
             for touch: AnyObject in touches {
                 let location = touch.locationInNode(self) /* location of touch */
                 
-                if self.nodeAtPoint(location) != self.pauseButton {
+                if self.nodeAtPoint(location) != self.pauseButton && self.nodeAtPoint(location) != self.goHomeButton && self.nodeAtPoint(location) != self.replayButton && self.scene?.paused == false {
                     if location.x >= pizza.position.x - 30 {
                         self.addChild(pizza)
                         pizza.physicsBody?.velocity = CGVector(dx: velocity, dy: velocity)

@@ -13,11 +13,6 @@ class ScoreScreen: SKScene {
     let replayButton = SKSpriteNode(imageNamed: "Replay")
     let goHomeButton = SKSpriteNode(imageNamed: "Home")
     let gameOverBanner = SKSpriteNode(imageNamed: "GameOver")
-    
-
-    
-    
-    
 
     override func didMoveToView(view: SKView) {
         self.backgroundColor = UIColor.whiteColor()
