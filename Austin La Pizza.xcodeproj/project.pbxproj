@@ -41,8 +41,7 @@
 		AD71EC261A37E7E5005CBF44 /* appIcon58.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC231A37E7E5005CBF44 /* appIcon58.png */; };
 		AD71EC271A37E7E5005CBF44 /* appIcon80.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC241A37E7E5005CBF44 /* appIcon80.png */; };
 		AD71EC281A37E7E5005CBF44 /* appIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC251A37E7E5005CBF44 /* appIcon120.png */; };
-		AD71EC2A1A381BC7005CBF44 /* pizzaWingz1.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC291A381BC7005CBF44 /* pizzaWingz1.png */; };
-		AD71EC2C1A381BCC005CBF44 /* pizzaWingz2.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC2B1A381BCC005CBF44 /* pizzaWingz2.png */; };
+		ADB3299C1A38530A00E43D55 /* ground1.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB3299B1A38530900E43D55 /* ground1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,8 +93,7 @@
 		AD71EC231A37E7E5005CBF44 /* appIcon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon58.png; sourceTree = "<group>"; };
 		AD71EC241A37E7E5005CBF44 /* appIcon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon80.png; sourceTree = "<group>"; };
 		AD71EC251A37E7E5005CBF44 /* appIcon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon120.png; sourceTree = "<group>"; };
-		AD71EC291A381BC7005CBF44 /* pizzaWingz1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pizzaWingz1.png; sourceTree = "<group>"; };
-		AD71EC2B1A381BCC005CBF44 /* pizzaWingz2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pizzaWingz2.png; sourceTree = "<group>"; };
+		ADB3299B1A38530900E43D55 /* ground1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +158,7 @@
 				AD71EBF71A356E3E005CBF44 /* AustinImage */,
 				AD71EBEB1A32762F005CBF44 /* flappy.png */,
 				AD71EC081A359F20005CBF44 /* ground.png */,
+				ADB3299B1A38530900E43D55 /* ground1.png */,
 				AD71EC0E1A369389005CBF44 /* Pepperoni_Pizza.png */,
 				AD71EC231A37E7E5005CBF44 /* appIcon58.png */,
 				AD71EC241A37E7E5005CBF44 /* appIcon80.png */,
@@ -211,8 +210,6 @@
 				AD71EC161A378179005CBF44 /* pizzaRocket1.png */,
 				AD71EC171A378179005CBF44 /* pizzaRocket2.png */,
 				AD71EC181A378179005CBF44 /* pizzaWing1.png */,
-				AD71EC291A381BC7005CBF44 /* pizzaWingz1.png */,
-				AD71EC2B1A381BCC005CBF44 /* pizzaWingz2.png */,
 				AD71EC191A378179005CBF44 /* pizzaWing2.png */,
 			);
 			path = PizzaBoxes;
@@ -299,10 +296,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD71EC2A1A381BC7005CBF44 /* pizzaWingz1.png in Resources */,
 				AD71EBD01A31CBAB005CBF44 /* LaunchScreen.xib in Resources */,
 				AD71EBF41A33C0AB005CBF44 /* bar.png in Resources */,
-				AD71EC2C1A381BCC005CBF44 /* pizzaWingz2.png in Resources */,
 				AD71EC221A378AC3005CBF44 /* pause.png in Resources */,
 				AD71EC1D1A378179005CBF44 /* pizzaRocket1.png in Resources */,
 				AD71EBFB1A356E3E005CBF44 /* Austin1.png in Resources */,
@@ -323,6 +318,7 @@
 				AD71EC1B1A378179005CBF44 /* pizzaLegs1.png in Resources */,
 				AD71EBC41A31CBAB005CBF44 /* GameScene.sks in Resources */,
 				AD71EBCB1A31CBAB005CBF44 /* Main.storyboard in Resources */,
+				ADB3299C1A38530A00E43D55 /* ground1.png in Resources */,
 				AD71EBE81A327345005CBF44 /* banner.png in Resources */,
 				AD71EBEA1A32755B005CBF44 /* button_black_play.png in Resources */,
 				AD71EC0D1A35B043005CBF44 /* gameBackground.png in Resources */,
