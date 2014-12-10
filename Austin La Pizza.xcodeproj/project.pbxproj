@@ -38,6 +38,11 @@
 		AD71EC1F1A378179005CBF44 /* pizzaWing1.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC181A378179005CBF44 /* pizzaWing1.png */; };
 		AD71EC201A378179005CBF44 /* pizzaWing2.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC191A378179005CBF44 /* pizzaWing2.png */; };
 		AD71EC221A378AC3005CBF44 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC211A378AC3005CBF44 /* pause.png */; };
+		AD71EC261A37E7E5005CBF44 /* appIcon58.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC231A37E7E5005CBF44 /* appIcon58.png */; };
+		AD71EC271A37E7E5005CBF44 /* appIcon80.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC241A37E7E5005CBF44 /* appIcon80.png */; };
+		AD71EC281A37E7E5005CBF44 /* appIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC251A37E7E5005CBF44 /* appIcon120.png */; };
+		AD71EC2A1A381BC7005CBF44 /* pizzaWingz1.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC291A381BC7005CBF44 /* pizzaWingz1.png */; };
+		AD71EC2C1A381BCC005CBF44 /* pizzaWingz2.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC2B1A381BCC005CBF44 /* pizzaWingz2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +91,11 @@
 		AD71EC181A378179005CBF44 /* pizzaWing1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pizzaWing1.png; sourceTree = "<group>"; };
 		AD71EC191A378179005CBF44 /* pizzaWing2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pizzaWing2.png; sourceTree = "<group>"; };
 		AD71EC211A378AC3005CBF44 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		AD71EC231A37E7E5005CBF44 /* appIcon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon58.png; sourceTree = "<group>"; };
+		AD71EC241A37E7E5005CBF44 /* appIcon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon80.png; sourceTree = "<group>"; };
+		AD71EC251A37E7E5005CBF44 /* appIcon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon120.png; sourceTree = "<group>"; };
+		AD71EC291A381BC7005CBF44 /* pizzaWingz1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pizzaWingz1.png; sourceTree = "<group>"; };
+		AD71EC2B1A381BCC005CBF44 /* pizzaWingz2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pizzaWingz2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +161,9 @@
 				AD71EBEB1A32762F005CBF44 /* flappy.png */,
 				AD71EC081A359F20005CBF44 /* ground.png */,
 				AD71EC0E1A369389005CBF44 /* Pepperoni_Pizza.png */,
+				AD71EC231A37E7E5005CBF44 /* appIcon58.png */,
+				AD71EC241A37E7E5005CBF44 /* appIcon80.png */,
+				AD71EC251A37E7E5005CBF44 /* appIcon120.png */,
 				AD71EC0C1A35B043005CBF44 /* gameBackground.png */,
 				AD71EC211A378AC3005CBF44 /* pause.png */,
 				AD71EBEF1A33B2F9005CBF44 /* new play.png */,
@@ -198,6 +211,8 @@
 				AD71EC161A378179005CBF44 /* pizzaRocket1.png */,
 				AD71EC171A378179005CBF44 /* pizzaRocket2.png */,
 				AD71EC181A378179005CBF44 /* pizzaWing1.png */,
+				AD71EC291A381BC7005CBF44 /* pizzaWingz1.png */,
+				AD71EC2B1A381BCC005CBF44 /* pizzaWingz2.png */,
 				AD71EC191A378179005CBF44 /* pizzaWing2.png */,
 			);
 			path = PizzaBoxes;
@@ -283,16 +298,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD71EC2A1A381BC7005CBF44 /* pizzaWingz1.png in Resources */,
 				AD71EBD01A31CBAB005CBF44 /* LaunchScreen.xib in Resources */,
 				AD71EBF41A33C0AB005CBF44 /* bar.png in Resources */,
+				AD71EC2C1A381BCC005CBF44 /* pizzaWingz2.png in Resources */,
 				AD71EC221A378AC3005CBF44 /* pause.png in Resources */,
 				AD71EC1D1A378179005CBF44 /* pizzaRocket1.png in Resources */,
 				AD71EBFB1A356E3E005CBF44 /* Austin1.png in Resources */,
 				AD71EBCD1A31CBAB005CBF44 /* Images.xcassets in Resources */,
+				AD71EC281A37E7E5005CBF44 /* appIcon120.png in Resources */,
 				AD71EC1C1A378179005CBF44 /* pizzaLegs2.png in Resources */,
 				AD71EBFD1A356E3E005CBF44 /* Austin3.png in Resources */,
+				AD71EC271A37E7E5005CBF44 /* appIcon80.png in Resources */,
 				AD71EC1F1A378179005CBF44 /* pizzaWing1.png in Resources */,
 				AD71EC1A1A378179005CBF44 /* pizzaFlap.png in Resources */,
+				AD71EC261A37E7E5005CBF44 /* appIcon58.png in Resources */,
 				AD71EC0F1A369389005CBF44 /* Pepperoni_Pizza.png in Resources */,
 				AD71EBFC1A356E3E005CBF44 /* Austin2.png in Resources */,
 				AD71EBEE1A33A5F9005CBF44 /* Austin.GIF in Resources */,

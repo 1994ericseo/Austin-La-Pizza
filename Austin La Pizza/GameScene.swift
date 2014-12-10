@@ -31,7 +31,7 @@ class GameScene: SKScene {
         var austinList = [austinTexture1, austinTexture2, austinTexture3]
         
         self.austin.size = CGSizeMake(200, 200)
-        self.austin.position = CGPointMake(100,100)
+        self.austin.position = CGPointMake(100,85)
         var action = SKAction.repeatActionForever(SKAction.animateWithTextures(austinList, timePerFrame: 0.2, resize: false, restore: true))
         
         self.austin.runAction(action)
@@ -39,29 +39,35 @@ class GameScene: SKScene {
         
         
         
+        
         self.playButton.size = CGSizeMake(50, 50)
-        self.playButton.position = CGPointMake(CGRectGetMidX(self.frame)-30, 50)
+        self.playButton.position = CGPointMake(-30, 50)
         
         self.banner.size = CGSizeMake(200, 200)
         self.banner.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 80)
         
         self.highscore.size = CGSizeMake(50, 50)
-        self.highscore.position = CGPointMake(CGRectGetMidX(self.frame)+30, 50)
+        self.highscore.position = CGPointMake(CGRectGetMaxX(self.frame)+30, 50)
         
-        /*var nodeAction = SKAction.fadeInWithDuration(NSTimeInterval(2.0))
-        self.banner.runAction(nodeAction)
-        self.playButton.runAction(nodeAction)
-        self.highscore.runAction(nodeAction) */
+        var moveAction1 = SKAction.moveTo(CGPointMake(CGRectGetMidX(self.frame) - 30, 50), duration: 0.7)
+        var moveAction2 = SKAction.moveTo(CGPointMake(CGRectGetMidX(self.frame)+30, 50), duration: 0.7)
+        
+        
+        self.banner.alpha = 0.0
+        
+        
+
+        
+        self.playButton.runAction(moveAction1)
+        self.highscore.runAction(moveAction2)
+        
         
         self.addChild(self.banner)
         self.addChild(self.highscore)
         self.addChild(self.playButton)
-        
-        
-        
-        
-        
     }
+    
+    
     
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -88,8 +94,18 @@ class GameScene: SKScene {
         }
         
     }
+    
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        if self.playButton.position == CGPointMake(CGRectGetMidX(self.frame) - 30, 50) {
+            
+            var fadeAction = SKAction.fadeAlphaTo(1, duration: 0.7)
+        
+            self.banner.runAction(fadeAction)
+            
+        }
+        
+        
     }
 }
