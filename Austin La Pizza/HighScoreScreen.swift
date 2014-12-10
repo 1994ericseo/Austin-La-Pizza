@@ -10,8 +10,8 @@ import SpriteKit
 
 class HighScoreScreen: SKScene {
     var score = 0
-    let goHomeButton = SKSpriteNode(imageNamed: "Home")
-    let highScoreBanner = SKSpriteNode(imageNamed: "HighScore")
+    let goHomeButton = SKSpriteNode(imageNamed: "home")
+    let highScoreBanner = SKSpriteNode(imageNamed: "highScore")
     
     
     override func didMoveToView(view: SKView) {
@@ -20,7 +20,7 @@ class HighScoreScreen: SKScene {
         self.highScoreBanner.size = CGSizeMake(200, 200)
         self.highScoreBanner.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 80)
         
-        self.goHomeButton.size = CGSizeMake(50, 50)
+        self.goHomeButton.size = CGSizeMake(100, 100)
         self.goHomeButton.position = CGPointMake(CGRectGetMidX(self.frame), 50)
         
         self.addChild(highScoreBanner)

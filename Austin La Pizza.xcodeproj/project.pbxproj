@@ -42,6 +42,11 @@
 		AD71EC271A37E7E5005CBF44 /* appIcon80.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC241A37E7E5005CBF44 /* appIcon80.png */; };
 		AD71EC281A37E7E5005CBF44 /* appIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = AD71EC251A37E7E5005CBF44 /* appIcon120.png */; };
 		ADB3299C1A38530A00E43D55 /* ground1.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB3299B1A38530900E43D55 /* ground1.png */; };
+		ADB329A31A390B8F00E43D55 /* highscore.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB3299E1A390B8F00E43D55 /* highscore.png */; };
+		ADB329A41A390B8F00E43D55 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB3299F1A390B8F00E43D55 /* home.png */; };
+		ADB329A51A390B8F00E43D55 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB329A01A390B8F00E43D55 /* pause.png */; };
+		ADB329A61A390B8F00E43D55 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB329A11A390B8F00E43D55 /* play.png */; };
+		ADB329A71A390B8F00E43D55 /* replay.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB329A21A390B8F00E43D55 /* replay.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +99,11 @@
 		AD71EC241A37E7E5005CBF44 /* appIcon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon80.png; sourceTree = "<group>"; };
 		AD71EC251A37E7E5005CBF44 /* appIcon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon120.png; sourceTree = "<group>"; };
 		ADB3299B1A38530900E43D55 /* ground1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground1.png; sourceTree = "<group>"; };
+		ADB3299E1A390B8F00E43D55 /* highscore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highscore.png; sourceTree = "<group>"; };
+		ADB3299F1A390B8F00E43D55 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		ADB329A01A390B8F00E43D55 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		ADB329A11A390B8F00E43D55 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		ADB329A21A390B8F00E43D55 /* replay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = replay.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				AD71EBED1A33A5F9005CBF44 /* Austin.GIF */,
+				ADB3299D1A390B8F00E43D55 /* buttons */,
 				AD71EC121A378179005CBF44 /* PizzaBoxes */,
 				AD71EBF71A356E3E005CBF44 /* AustinImage */,
 				AD71EBEB1A32762F005CBF44 /* flappy.png */,
@@ -213,6 +224,18 @@
 				AD71EC191A378179005CBF44 /* pizzaWing2.png */,
 			);
 			path = PizzaBoxes;
+			sourceTree = "<group>";
+		};
+		ADB3299D1A390B8F00E43D55 /* buttons */ = {
+			isa = PBXGroup;
+			children = (
+				ADB3299E1A390B8F00E43D55 /* highscore.png */,
+				ADB3299F1A390B8F00E43D55 /* home.png */,
+				ADB329A01A390B8F00E43D55 /* pause.png */,
+				ADB329A11A390B8F00E43D55 /* play.png */,
+				ADB329A21A390B8F00E43D55 /* replay.png */,
+			);
+			path = buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,12 +321,14 @@
 			files = (
 				AD71EBD01A31CBAB005CBF44 /* LaunchScreen.xib in Resources */,
 				AD71EBF41A33C0AB005CBF44 /* bar.png in Resources */,
+				ADB329A51A390B8F00E43D55 /* pause.png in Resources */,
 				AD71EC221A378AC3005CBF44 /* pause.png in Resources */,
 				AD71EC1D1A378179005CBF44 /* pizzaRocket1.png in Resources */,
 				AD71EBFB1A356E3E005CBF44 /* Austin1.png in Resources */,
 				AD71EBCD1A31CBAB005CBF44 /* Images.xcassets in Resources */,
 				AD71EC281A37E7E5005CBF44 /* appIcon120.png in Resources */,
 				AD71EC1C1A378179005CBF44 /* pizzaLegs2.png in Resources */,
+				ADB329A31A390B8F00E43D55 /* highscore.png in Resources */,
 				AD71EBFD1A356E3E005CBF44 /* Austin3.png in Resources */,
 				AD71EC271A37E7E5005CBF44 /* appIcon80.png in Resources */,
 				AD71EC1F1A378179005CBF44 /* pizzaWing1.png in Resources */,
@@ -311,6 +336,7 @@
 				AD71EC261A37E7E5005CBF44 /* appIcon58.png in Resources */,
 				AD71EC0F1A369389005CBF44 /* Pepperoni_Pizza.png in Resources */,
 				AD71EBFC1A356E3E005CBF44 /* Austin2.png in Resources */,
+				ADB329A61A390B8F00E43D55 /* play.png in Resources */,
 				AD71EBEE1A33A5F9005CBF44 /* Austin.GIF in Resources */,
 				AD71EBF01A33B2F9005CBF44 /* new play.png in Resources */,
 				AD71EC1E1A378179005CBF44 /* pizzaRocket2.png in Resources */,
@@ -321,6 +347,8 @@
 				ADB3299C1A38530A00E43D55 /* ground1.png in Resources */,
 				AD71EBE81A327345005CBF44 /* banner.png in Resources */,
 				AD71EBEA1A32755B005CBF44 /* button_black_play.png in Resources */,
+				ADB329A71A390B8F00E43D55 /* replay.png in Resources */,
+				ADB329A41A390B8F00E43D55 /* home.png in Resources */,
 				AD71EC0D1A35B043005CBF44 /* gameBackground.png in Resources */,
 				AD71EC201A378179005CBF44 /* pizzaWing2.png in Resources */,
 				AD71EBEC1A32762F005CBF44 /* flappy.png in Resources */,

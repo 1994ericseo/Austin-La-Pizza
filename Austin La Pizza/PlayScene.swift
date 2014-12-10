@@ -16,12 +16,12 @@ class PlayScene: SKScene {
     
     /*PAUSE BUTTON THAT CHANGES TO PLAY*/
     let pauseButton = SKSpriteNode(imageNamed: "pause")
-    let playButton = SKTexture(imageNamed: "Play")
+    let playButton = SKTexture(imageNamed: "play")
     let pauseTexture = SKTexture(imageNamed: "pause")
     
     /*REPLAY AND HOME BUTTON AFTER PAUSE*/
-    let replayButton = SKSpriteNode(imageNamed: "Replay")
-    let goHomeButton = SKSpriteNode(imageNamed: "Home")
+    let replayButton = SKSpriteNode(imageNamed: "replay")
+    let goHomeButton = SKSpriteNode(imageNamed: "home")
     
     /*PIZZA WING*/
     let pizzaWing = SKSpriteNode(imageNamed: "pizzaWing1")
@@ -51,6 +51,8 @@ class PlayScene: SKScene {
     var backgroundSpeed = 5
     var touchDuration = NSDate()
     
+    var austinPositioned = false
+    
     /*Randomize Arrays*/
     
     
@@ -67,8 +69,9 @@ class PlayScene: SKScene {
         self.physicsWorld.gravity = CGVectorMake(0.0, -5.0)
         
         //pause button
-        self.pauseButton.size = CGSizeMake(50, 50)
-        self.pauseButton.position = CGPointMake(CGRectGetMaxX(self.frame) - 30, CGRectGetMaxY(self.frame) - 30)
+        self.pauseButton.size = CGSizeMake(70, 70)
+        self.pauseButton.position = CGPointMake(CGRectGetMaxX(self.frame) - 25, CGRectGetMaxY(self.frame) - 25)
+        self.pauseButton.zPosition += 1
         
         /* floor */
         self.runningBar.anchorPoint = CGPointMake(0, 0.5)
@@ -91,9 +94,9 @@ class PlayScene: SKScene {
         
         var pizzaWingList = [self.pizzaWingTxt1, self.pizzaWingTxt2]
         var pizzaWingAnimation = SKAction.repeatActionForever(SKAction.animateWithTextures(pizzaWingList, timePerFrame: 0.2, resize: false, restore: true))
-        
         self.pizzaWing.runAction(pizzaWingAnimation)
-        self.addChild(self.pizzaWing)
+        
+        //self.addChild(self.pizzaWing)
         
         /*pizza legs___________________________________________________*/
         self.pizzaLegs.size = size
@@ -106,7 +109,7 @@ class PlayScene: SKScene {
         var pizzaLegAnimation = SKAction.repeatActionForever(SKAction.animateWithTextures(pizzaLegList, timePerFrame: 0.2, resize: false, restore: true))
         self.pizzaLegs.runAction(pizzaLegAnimation)
         
-        self.addChild(self.pizzaLegs)
+        //self.addChild(self.pizzaLegs)
         
         /*pizza rocket_________________________________________________*/
         self.pizzaRocket.size = size
@@ -119,7 +122,7 @@ class PlayScene: SKScene {
         var pizzaRocketAnimation = SKAction.repeatActionForever(SKAction.animateWithTextures(pizzaRocketList, timePerFrame: 0.2, resize: false, restore: true))
         self.pizzaRocket.runAction(pizzaRocketAnimation)
         
-        self.addChild(pizzaRocket)
+        //self.addChild(pizzaRocket)
         
         
         /* austin_____________________________________________________ */
@@ -129,8 +132,8 @@ class PlayScene: SKScene {
         
         var austinList = [austinTexture1, austinTexture2, austinTexture3]
         
-        self.austin.size = CGSizeMake(200, 200)
-        self.austin.position = CGPointMake(100,85)
+        self.austin.size = CGSizeMake(200, 265)
+        self.austin.position = CGPointMake(-100,100)
         
         
         var action = SKAction.repeatActionForever(SKAction.animateWithTextures(austinList, timePerFrame: 0.2, resize: false, restore: true))
@@ -165,11 +168,11 @@ class PlayScene: SKScene {
                 
                 self.pauseButton.texture = self.playButton
                 
-                self.replayButton.size = CGSizeMake(50, 50)
-                self.replayButton.position = CGPointMake(CGRectGetMidX(self.frame)-30, 70)
+                self.replayButton.size = CGSizeMake(100, 100)
+                self.replayButton.position = CGPointMake(CGRectGetMidX(self.frame) - 40, 70)
                 
-                self.goHomeButton.size = CGSizeMake(50, 50)
-                self.goHomeButton.position = CGPointMake(CGRectGetMidX(self.frame)+30, 70)
+                self.goHomeButton.size = CGSizeMake(100, 100)
+                self.goHomeButton.position = CGPointMake(CGRectGetMidX(self.frame) + 40, 70)
                 
                 self.addChild(goHomeButton)
                 self.addChild(replayButton)
@@ -240,13 +243,13 @@ class PlayScene: SKScene {
         
         
         //pizza.position = self.austin.position;
-        pizza.position = CGPointMake(self.austin.size.width - 50, self.austin.size.height - 80)
-        let velocity = CGFloat(NSDate().timeIntervalSinceDate(self.touchDuration))/5 + 0.05
+        pizza.position = CGPointMake(self.austin.size.width - 50, self.austin.size.height - 120)
+        let velocity = CGFloat(NSDate().timeIntervalSinceDate(self.touchDuration))/5 + 0.025
         
             for touch: AnyObject in touches {
                 let location = touch.locationInNode(self) /* location of touch */
                 
-                if self.nodeAtPoint(location) != self.pauseButton && self.nodeAtPoint(location) != self.goHomeButton && self.nodeAtPoint(location) != self.replayButton && self.scene?.paused == false {
+                if self.nodeAtPoint(location) != self.pauseButton && self.nodeAtPoint(location) != self.goHomeButton && self.nodeAtPoint(location) != self.replayButton && self.scene?.paused == false && self.austinPositioned == true {
                     if location.x >= pizza.position.x - 30 {
                         self.addChild(pizza)
                         pizza.physicsBody?.velocity = CGVector(dx: velocity, dy: velocity)
@@ -268,6 +271,8 @@ class PlayScene: SKScene {
         
         var whichBox = arc4random() % 3
         
+        
+        
         var moveWing = SKAction.moveTo(CGPointMake(-300, pizzaWing.position.y), duration: 5)
         self.pizzaWing.runAction(moveWing)
         
@@ -276,6 +281,13 @@ class PlayScene: SKScene {
         
         var moveRocket = SKAction.moveTo(CGPointMake(-300, pizzaLegs.position.y), duration: 5)
         self.pizzaRocket.runAction(moveLegs)
+        
+        var moveAustin = SKAction.moveTo(CGPointMake(100,100), duration: 0.1)
+        self.austin.runAction(moveAustin)
+        
+        if austin.position == CGPointMake(100, 100) && self.austinPositioned == false {
+            self.austinPositioned = true
+        }
         
         
         

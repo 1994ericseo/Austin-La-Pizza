@@ -10,9 +10,9 @@ import SpriteKit
 
 class GameScene: SKScene {
     
-    let playButton = SKSpriteNode(imageNamed: "Play")
+    let playButton = SKSpriteNode(imageNamed: "play")
     let banner = SKSpriteNode(imageNamed: "Image")
-    let highscore = SKSpriteNode(imageNamed: "Image")
+    let highscore = SKSpriteNode(imageNamed: "highscore")
     let austin = SKSpriteNode(imageNamed: "Austin1")
     let game = PlayScene()
     let score = HighScoreScreen()
@@ -35,22 +35,22 @@ class GameScene: SKScene {
         var action = SKAction.repeatActionForever(SKAction.animateWithTextures(austinList, timePerFrame: 0.2, resize: false, restore: true))
         
         self.austin.runAction(action)
-        self.addChild(self.austin)
+        //self.addChild(self.austin)
         
         
         
         
-        self.playButton.size = CGSizeMake(50, 50)
-        self.playButton.position = CGPointMake(-30, 50)
+        self.playButton.size = CGSizeMake(100, 100)
+        self.playButton.position = CGPointMake(-38, 50)
         
         self.banner.size = CGSizeMake(200, 200)
         self.banner.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 80)
         
-        self.highscore.size = CGSizeMake(50, 50)
-        self.highscore.position = CGPointMake(CGRectGetMaxX(self.frame)+30, 50)
+        self.highscore.size = CGSizeMake(100, 100)
+        self.highscore.position = CGPointMake(CGRectGetMaxX(self.frame)+38, 50)
         
-        var moveAction1 = SKAction.moveTo(CGPointMake(CGRectGetMidX(self.frame) - 30, 50), duration: 0.7)
-        var moveAction2 = SKAction.moveTo(CGPointMake(CGRectGetMidX(self.frame)+30, 50), duration: 0.7)
+        var moveAction1 = SKAction.moveTo(CGPointMake(CGRectGetMidX(self.frame) - 38, 50), duration: 0.7)
+        var moveAction2 = SKAction.moveTo(CGPointMake(CGRectGetMidX(self.frame) + 38, 50), duration: 0.7)
         
         
         self.banner.alpha = 0.0
@@ -98,7 +98,7 @@ class GameScene: SKScene {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        if self.playButton.position == CGPointMake(CGRectGetMidX(self.frame) - 30, 50) {
+        if self.playButton.position == CGPointMake(CGRectGetMidX(self.frame) - 38, 50) {
             
             var fadeAction = SKAction.fadeAlphaTo(1, duration: 0.7)
         
