@@ -89,7 +89,7 @@ class PlayScene: SKScene {
         
         /* floor */
         self.runningBar.anchorPoint = CGPointMake(0, 0.5)
-        self.runningBar.position = CGPointMake(CGRectGetMinX(self.frame), CGRectGetMinY(self.frame) + (self.runningBar.size.height)/2)
+        self.runningBar.position = CGPointMake(CGRectGetMinX(self.frame)-100, CGRectGetMinY(self.frame) + (self.runningBar.size.height)/2)
         
         
         /* background */
@@ -155,7 +155,7 @@ class PlayScene: SKScene {
         /* go back to original sizes */
             /* BAR */
         self.origRunningBarPosition = self.runningBar.position.x
-        self.maxBarX = self.runningBar.size.width - (self.frame.size.width)
+        self.maxBarX = self.runningBar.size.width - (self.frame.size.width+100)
         self.maxBarX = self.maxBarX * -1
             /* BACKGROUND */
         self.origBackgroundPosition = self.background.position.x
