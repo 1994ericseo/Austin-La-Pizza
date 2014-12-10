@@ -17,10 +17,9 @@ class PlayScene: SKScene {
     
     
     
-    var austin = SKSpriteNode()
-    let austin1 = SKSpriteNode(imageNamed: "Austin1")
-    let austin2 = SKSpriteNode(imageNamed: "Austin2")
-    let austin3 = SKSpriteNode(imageNamed: "Austin3")
+    
+    let austin = SKSpriteNode(imageNamed: "Austin1")
+    
     
     let playButton = SKTexture(imageNamed: "Play")
     
@@ -41,14 +40,14 @@ class PlayScene: SKScene {
     let pizzaRocketTxt1 = SKTexture(imageNamed: "pizzaRocket1")
     let pizzaRocketTxt2 = SKTexture(imageNamed: "pizzaRocket2")
     
-    let pizzaWing1 = SKSpriteNode(imageNamed: "pizzaWing1")
+    
     let pizzaWingTxt1 = SKTexture(imageNamed: "pizzaWing1")
     let pizzaWingTxt2 = SKTexture(imageNamed: "pizzaWing2")
     
     
     //test images
-    let pizzaWingz1 = SKSpriteNode(imageNamed: "pizzaWing1")
-    let pizzaWingz2 = SKTexture(imageNamed: "pizzaWing2")
+    let pizzaWing = SKSpriteNode(imageNamed: "pizzaWing1")
+    let pizzaWing2 = SKTexture(imageNamed: "pizzaWing2")
     
     let pizzaFlap = SKSpriteNode(imageNamed: "pizzaFlap")
     
@@ -101,14 +100,14 @@ class PlayScene: SKScene {
         let size = CGSizeMake(164, 164)
         
         
-            //piza wing TEST
-        self.pizzaWingz1.size = size
-        self.pizzaWingz1.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame)+30)
-        self.pizzaWingz1.physicsBody = SKPhysicsBody(texture: self.pizzaWingz1.texture, size: self.pizzaWingz1.size)
-        self.pizzaWingz1.physicsBody?.affectedByGravity = false
-        self.pizzaWingz1.physicsBody?.dynamic = false
+        //piza wing
+        self.pizzaWing.size = size
+        self.pizzaWing.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame)+30)
+        self.pizzaWing.physicsBody = SKPhysicsBody(texture: self.pizzaWing.texture, size: self.pizzaWing.size)
+        self.pizzaWing.physicsBody?.affectedByGravity = false
+        self.pizzaWing.physicsBody?.dynamic = false
         
-        self.addChild(self.pizzaWingz1)
+        self.addChild(self.pizzaWing)
         
             //pizza Wing
         
@@ -127,14 +126,15 @@ class PlayScene: SKScene {
         
         var austinList = [austinTexture1, austinTexture2, austinTexture3]
         
-        self.austin1.size = CGSizeMake(200, 200)
-        self.austin1.position = CGPointMake(100,85)
+        self.austin.size = CGSizeMake(200, 200)
+        self.austin.position = CGPointMake(100,85)
         
         
         var action = SKAction.repeatActionForever(SKAction.animateWithTextures(austinList, timePerFrame: 0.2, resize: false, restore: true))
         
-        self.austin = austin1
+        
         self.austin.runAction(action)
+        self.austin.zPosition = self.runningBar.zPosition + 1
         
         self.addChild(self.runningBar)
         self.addChild(self.austin)
