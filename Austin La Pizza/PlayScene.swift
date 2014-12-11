@@ -122,7 +122,7 @@ class PlayScene: SKScene {
         var pizzaRocketAnimation = SKAction.repeatActionForever(SKAction.animateWithTextures(pizzaRocketList, timePerFrame: 0.2, resize: false, restore: true))
         self.pizzaRocket.runAction(pizzaRocketAnimation)
         
-        //self.addChild(pizzaRocket)
+        self.addChild(pizzaRocket)
         
         
         /* austin_____________________________________________________ */
@@ -270,6 +270,8 @@ class PlayScene: SKScene {
         } */
         
         var whichBox = arc4random() % 3
+        
+        var boxList = [self.pizzaWing, self.pizzaLegs, self.pizzaRocket]
         
         
         
