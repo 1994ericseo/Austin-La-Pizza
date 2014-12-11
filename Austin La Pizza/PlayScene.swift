@@ -54,6 +54,11 @@ class PlayScene: SKScene {
     var austinPositioned2 = false
     var losecount = 0
     
+    /*SCORE*/
+    let scoreLabel = SKLabelNode(fontNamed: "Arial")
+    
+    
+    
     /*Randomize Arrays*/
     
     
@@ -283,6 +288,18 @@ class PlayScene: SKScene {
 
     }
 
+    func beginScore() {
+        self.scoreLabel.fontSize = 35
+        self.scoreLabel.fontColor = SKColor.redColor()
+        self.scoreLabel.text = NSString(format: "%u", self.points)
+        self.scoreLabel.position = CGPoint(x: frame.size.width / 2, y: size.height - (40 + scoreLabel.frame.size.height/2))
+        addChild(scoreLabel)
+        
+    }
+    
+    func updateScore() {
+        self.scoreLabel.text = NSString(format: "%u", self.points)
+    }
     
     override func update(currentTime: NSTimeInterval) {
         if self.runningBar.position.x <= maxBarX {
@@ -303,6 +320,7 @@ class PlayScene: SKScene {
         //austin positioned
         if austin.position == CGPointMake(100, 100) && self.austinPositioned == false {
             self.austinPositioned = true
+            beginScore()
             spawnPizzas()
         }
         
@@ -312,6 +330,7 @@ class PlayScene: SKScene {
             self.trackPizza.position = CGPointMake(300, 300)
             self.trackPizza.removeFromParent()
             self.points += 1
+            updateScore()
             spawnPizzas()
         }
         
