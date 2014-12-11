@@ -10,8 +10,8 @@ import SpriteKit
 
 class ScoreScreen: SKScene {
     var score = 0
-    let replayButton = SKSpriteNode(imageNamed: "Replay")
-    let goHomeButton = SKSpriteNode(imageNamed: "Home")
+    let replayButton = SKSpriteNode(imageNamed: "replay")
+    let goHomeButton = SKSpriteNode(imageNamed: "home")
     let gameOverBanner = SKSpriteNode(imageNamed: "GameOver")
 
     override func didMoveToView(view: SKView) {

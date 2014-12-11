@@ -33,10 +33,7 @@ class PlayScene: SKScene {
     let pizzaLegsTxt1 = SKTexture(imageNamed: "pizzaLegs1")
     let pizzaLegsTxt2 = SKTexture(imageNamed: "pizzaLegs2")
     
-    /*PIZZA ROCKET*/
-    let pizzaRocket = SKSpriteNode(imageNamed: "pizzaRocket1")
-    let pizzaRocketTxt1 = SKTexture(imageNamed: "pizzaRocket1")
-    let pizzaRocketTxt2 = SKTexture(imageNamed: "pizzaRocket2")
+    
     
     /*BACKGROUND + RUNNING BAR/GROUND*/
     let background = SKSpriteNode(imageNamed: "gameBackground")
@@ -90,46 +87,6 @@ class PlayScene: SKScene {
         
         //pizza box size
         let size = CGSizeMake(164, 164)
-        
-        /*pizza wing____________________________________________________*/
-        self.pizzaWing.size = size
-        self.pizzaWing.position = CGPointMake(CGRectGetMaxX(self.frame)+150, CGRectGetMidY(self.frame)+30)
-        self.pizzaWing.physicsBody = SKPhysicsBody(texture: self.pizzaWing.texture, size: self.pizzaWing.size)
-        self.pizzaWing.physicsBody?.affectedByGravity = false
-        self.pizzaWing.physicsBody?.dynamic = false
-        
-        var pizzaWingList = [self.pizzaWingTxt1, self.pizzaWingTxt2]
-        var pizzaWingAnimation = SKAction.repeatActionForever(SKAction.animateWithTextures(pizzaWingList, timePerFrame: 0.2, resize: false, restore: true))
-        self.pizzaWing.runAction(pizzaWingAnimation)
-        
-        self.addChild(self.pizzaWing)
-        
-        /*pizza legs___________________________________________________*/
-        self.pizzaLegs.size = size
-        self.pizzaLegs.position = CGPointMake(CGRectGetMaxX(self.frame)+150, CGRectGetMidY(self.frame) - 100)
-        self.pizzaLegs.physicsBody = SKPhysicsBody(texture: self.pizzaLegs.texture, size: self.pizzaLegs.size)
-        self.pizzaLegs.physicsBody?.affectedByGravity = false
-        self.pizzaLegs.physicsBody?.dynamic = false
-        
-        var pizzaLegList = [self.pizzaLegsTxt1, self.pizzaLegsTxt2]
-        var pizzaLegAnimation = SKAction.repeatActionForever(SKAction.animateWithTextures(pizzaLegList, timePerFrame: 0.2, resize: false, restore: true))
-        self.pizzaLegs.runAction(pizzaLegAnimation)
-        
-        //self.addChild(self.pizzaLegs)
-        
-        /*pizza rocket_________________________________________________*/
-        self.pizzaRocket.size = size
-        self.pizzaRocket.position = CGPointMake(CGRectGetMaxX(self.frame)+150, CGRectGetMidY(self.frame) + 100)
-        self.pizzaRocket.physicsBody = SKPhysicsBody(texture: self.pizzaRocket.texture, size: self.pizzaRocket.size)
-        self.pizzaRocket.physicsBody?.affectedByGravity = false
-        self.pizzaRocket.physicsBody?.dynamic = false
-        
-        var pizzaRocketList = [self.pizzaRocketTxt1, self.pizzaRocketTxt2]
-        var pizzaRocketAnimation = SKAction.repeatActionForever(SKAction.animateWithTextures(pizzaRocketList, timePerFrame: 0.2, resize: false, restore: true))
-        self.pizzaRocket.runAction(pizzaRocketAnimation)
-        
-        //self.addChild(pizzaRocket)
-        
         
         /* austin_____________________________________________________ */
         let austinTexture1 = SKTexture(imageNamed: "Austin1")
@@ -267,13 +224,63 @@ class PlayScene: SKScene {
     }
     
     
-    
+    func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat{
+        return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
+    }
     
     func spawnPizzas() {
-        var whichBox = 0 + Int(arc4random_uniform(UInt32(2 - 0 + 1)))
-        var boxList = [self.pizzaWing, self.pizzaLegs, self.pizzaRocket]
+        
+        let size = CGSizeMake(164, 164)
+        
+        var whichBox = 0 + Int(arc4random_uniform(UInt32(1 - 0 + 1)))
+        var boxList = [self.pizzaWing, self.pizzaLegs]
         
         var newBox = boxList[whichBox]
+        var y = randomBetweenNumbers(100.0, secondNum: CGRectGetMaxY(self.frame)-50.0)
+        
+        /*pizza wing____________________________________________________*/
+        if newBox == self.pizzaWing {
+            self.pizzaWing.size = size
+            self.pizzaWing.position = CGPointMake(CGRectGetMaxX(self.frame)+150, y)
+            self.pizzaWing.physicsBody = SKPhysicsBody(texture: self.pizzaWing.texture, size: self.pizzaWing.size)
+            self.pizzaWing.physicsBody?.affectedByGravity = false
+            self.pizzaWing.physicsBody?.dynamic = false
+            
+            var pizzaWingList = [self.pizzaWingTxt1, self.pizzaWingTxt2]
+            var pizzaWingAnimation = SKAction.repeatActionForever(SKAction.animateWithTextures(pizzaWingList, timePerFrame: 0.2, resize: false, restore: true))
+            self.pizzaWing.runAction(pizzaWingAnimation)
+            
+            var pizzaWingsCopy = self.pizzaWing.copy() as SKSpriteNode
+            
+            self.addChild(pizzaWingsCopy)
+            
+            var moveWing = SKAction.moveTo(CGPointMake(-300, pizzaWingsCopy.position.y), duration: 5)
+            pizzaWingsCopy.runAction(moveWing)
+        }
+        
+        /*pizza legs___________________________________________________*/
+        else if newBox == self.pizzaLegs {
+            self.pizzaLegs.size = size
+            self.pizzaLegs.position = CGPointMake(CGRectGetMaxX(self.frame)+150, CGRectGetMidY(self.frame) - 100)
+            self.pizzaLegs.physicsBody = SKPhysicsBody(texture: self.pizzaLegs.texture, size: self.pizzaLegs.size)
+            self.pizzaLegs.physicsBody?.affectedByGravity = false
+            self.pizzaLegs.physicsBody?.dynamic = false
+            
+            var pizzaLegList = [self.pizzaLegsTxt1, self.pizzaLegsTxt2]
+            var pizzaLegAnimation = SKAction.repeatActionForever(SKAction.animateWithTextures(pizzaLegList, timePerFrame: 0.2, resize: false, restore: true))
+            self.pizzaLegs.runAction(pizzaLegAnimation)
+            
+            var pizzaLegsCopy = self.pizzaLegs.copy() as SKSpriteNode
+            
+            self.addChild(pizzaLegsCopy)
+            
+            var moveLegs = SKAction.moveTo(CGPointMake(-300, pizzaLegsCopy.position.y), duration: 5)
+            pizzaLegsCopy.runAction(moveLegs)
+        }
+            
+        
+        
+
     }
 
     
@@ -287,34 +294,30 @@ class PlayScene: SKScene {
         
         
         
-        var moveLegs = SKAction.moveTo(CGPointMake(-300, pizzaLegs.position.y), duration: 5)
-        self.pizzaLegs.runAction(moveLegs)
         
-        var moveRocket = SKAction.moveTo(CGPointMake(-300, pizzaRocket.position.y), duration: 5)
-        self.pizzaRocket.runAction(moveRocket)
         
         var moveAustin = SKAction.moveTo(CGPointMake(100,100), duration: 0.1)
         self.austin.runAction(moveAustin)
         
+        
+        //austin positioned
         if austin.position == CGPointMake(100, 100) && self.austinPositioned == false {
             self.austinPositioned = true
+            spawnPizzas()
         }
         
-        if austin.position == CGPointMake(100, 100) && self.austinPositioned2 == false {
-            //println("GO")
-            self.austinPositioned2 = true
-            var moveWing = SKAction.moveTo(CGPointMake(-300, pizzaWing.position.y), duration: 5)
-            self.pizzaWing.runAction(moveWing)
-        }
         
+        //scored!
         if self.trackPizza.position.x < self.austin.position.x {
             self.trackPizza.position = CGPointMake(300, 300)
             self.trackPizza.removeFromParent()
             self.points += 1
+            spawnPizzas()
         }
         
+        //LOSE!
         if self.trackPizza.position.y < self.frame.minY || self.trackPizza.position.x > self.frame.maxX {
-            //println(self.points)
+            println(self.points)
             
             self.trackPizza.position = CGPointMake(100, 100)
             self.trackPizza.removeFromParent()
