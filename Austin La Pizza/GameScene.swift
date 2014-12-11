@@ -43,8 +43,8 @@ class GameScene: SKScene {
         self.playButton.size = CGSizeMake(100, 100)
         self.playButton.position = CGPointMake(-38, 50)
         
-        self.banner.size = CGSizeMake(200, 200)
-        self.banner.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 80)
+        self.banner.size = CGSizeMake(700, 500)
+        self.banner.position = CGPointMake(CGRectGetMidX(self.frame)+10, CGRectGetMidY(self.frame)+30)
         
         self.highscore.size = CGSizeMake(100, 100)
         self.highscore.position = CGPointMake(CGRectGetMaxX(self.frame)+38, 50)

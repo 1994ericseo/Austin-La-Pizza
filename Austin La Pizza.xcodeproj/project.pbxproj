@@ -47,6 +47,7 @@
 		ADB329A51A390B8F00E43D55 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB329A01A390B8F00E43D55 /* pause.png */; };
 		ADB329A61A390B8F00E43D55 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB329A11A390B8F00E43D55 /* play.png */; };
 		ADB329A71A390B8F00E43D55 /* replay.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB329A21A390B8F00E43D55 /* replay.png */; };
+		ADB329A91A3A5D8F00E43D55 /* thevinyll.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ADB329A81A3A5D8F00E43D55 /* thevinyll.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		ADB329A01A390B8F00E43D55 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		ADB329A11A390B8F00E43D55 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		ADB329A21A390B8F00E43D55 /* replay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = replay.png; sourceTree = "<group>"; };
+		ADB329A81A3A5D8F00E43D55 /* thevinyll.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thevinyll.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				AD71EBF71A356E3E005CBF44 /* AustinImage */,
 				AD71EBEB1A32762F005CBF44 /* flappy.png */,
 				AD71EC081A359F20005CBF44 /* ground.png */,
+				ADB329A81A3A5D8F00E43D55 /* thevinyll.jpg */,
 				ADB3299B1A38530900E43D55 /* ground1.png */,
 				AD71EC0E1A369389005CBF44 /* Pepperoni_Pizza.png */,
 				AD71EC231A37E7E5005CBF44 /* appIcon58.png */,
@@ -324,6 +327,7 @@
 				ADB329A51A390B8F00E43D55 /* pause.png in Resources */,
 				AD71EC221A378AC3005CBF44 /* pause.png in Resources */,
 				AD71EC1D1A378179005CBF44 /* pizzaRocket1.png in Resources */,
+				ADB329A91A3A5D8F00E43D55 /* thevinyll.jpg in Resources */,
 				AD71EBFB1A356E3E005CBF44 /* Austin1.png in Resources */,
 				AD71EBCD1A31CBAB005CBF44 /* Images.xcassets in Resources */,
 				AD71EC281A37E7E5005CBF44 /* appIcon120.png in Resources */,

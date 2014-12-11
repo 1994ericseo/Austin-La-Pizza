@@ -10,8 +10,8 @@
             <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="Ll3-Fk-aZg">
-                    <rect key="frame" x="276" y="129" width="115" height="117"/>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="thevinyll.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="YWR-jA-wt5">
+                    <rect key="frame" x="121" y="46" width="425" height="284"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -22,6 +22,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Image" width="115" height="117"/>
+        <image name="thevinyll.jpg" width="596" height="375"/>
     </resources>
 </document>

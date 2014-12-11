@@ -2,7 +2,8 @@
   "images" : [
     {
       "idiom" : "iphone",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "banner.png"
     },
     {
       "idiom" : "iphone",
@@ -10,8 +11,7 @@
     },
     {
       "idiom" : "iphone",
-      "scale" : "3x",
-      "filename" : "banner.png"
+      "scale" : "3x"
     }
   ],
   "info" : {
