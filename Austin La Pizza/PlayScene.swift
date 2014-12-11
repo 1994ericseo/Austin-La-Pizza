@@ -77,8 +77,8 @@ class PlayScene: SKScene {
         self.physicsWorld.gravity = CGVectorMake(0.0, -5.0)
         
         //pause button
-        self.pauseButton.size = CGSizeMake(70, 70)
-        self.pauseButton.position = CGPointMake(CGRectGetMaxX(self.frame) - 25, CGRectGetMaxY(self.frame) - 25)
+        self.pauseButton.size = CGSizeMake(50, 50)
+        self.pauseButton.position = CGPointMake(CGRectGetMinX(self.frame) + 25, CGRectGetMaxY(self.frame) - 25)
         self.pauseButton.zPosition += 1
         
         /* floor */
@@ -136,7 +136,7 @@ class PlayScene: SKScene {
                 
                 self.pauseButton.texture = self.playButton
                 
-                self.replayButton.size = CGSizeMake(100, 100)
+                self.replayButton.size = CGSizeMake(70, 70)
                 self.replayButton.position = CGPointMake(CGRectGetMidX(self.frame) - 40, 70)
                 
                 self.goHomeButton.size = CGSizeMake(70, 70)
