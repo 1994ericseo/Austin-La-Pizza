@@ -267,8 +267,13 @@ class PlayScene: SKScene {
     }
     
     
+    
+    
     func spawnPizzas() {
+        var whichBox = 0 + Int(arc4random_uniform(UInt32(2 - 0 + 1)))
+        var boxList = [self.pizzaWing, self.pizzaLegs, self.pizzaRocket]
         
+        var newBox = boxList[whichBox]
     }
 
     
@@ -280,9 +285,7 @@ class PlayScene: SKScene {
             self.background.position.x = self.origBackgroundPosition
         } */
         
-        var whichBox = arc4random() % 3
         
-        var boxList = [self.pizzaWing, self.pizzaLegs, self.pizzaRocket]
         
         var moveLegs = SKAction.moveTo(CGPointMake(-300, pizzaLegs.position.y), duration: 5)
         self.pizzaLegs.runAction(moveLegs)
@@ -298,7 +301,7 @@ class PlayScene: SKScene {
         }
         
         if austin.position == CGPointMake(100, 100) && self.austinPositioned2 == false {
-            println("GO")
+            //println("GO")
             self.austinPositioned2 = true
             var moveWing = SKAction.moveTo(CGPointMake(-300, pizzaWing.position.y), duration: 5)
             self.pizzaWing.runAction(moveWing)
@@ -311,7 +314,7 @@ class PlayScene: SKScene {
         }
         
         if self.trackPizza.position.y < self.frame.minY || self.trackPizza.position.x > self.frame.maxX {
-            println(self.points)
+            //println(self.points)
             
             self.trackPizza.position = CGPointMake(100, 100)
             self.trackPizza.removeFromParent()
