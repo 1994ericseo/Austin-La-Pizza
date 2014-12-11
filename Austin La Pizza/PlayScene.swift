@@ -51,19 +51,25 @@ class PlayScene: SKScene {
     var backgroundSpeed = 5
     var touchDuration = NSDate()
     
+    var points = 0
+    
     var austinPositioned = false
+    var austinPositioned2 = false
+    var losecount = 0
     
     /*Randomize Arrays*/
     
     
     
-
+    var trackPizza = SKSpriteNode()
     
     
     override func didMoveToView(view: SKView) {
         
         //setting background color to white
         self.backgroundColor = UIColor.whiteColor()
+        
+        self.trackPizza.position = CGPointMake(300, 300)
         
         //setting gravity
         self.physicsWorld.gravity = CGVectorMake(0.0, -5.0)
@@ -96,7 +102,7 @@ class PlayScene: SKScene {
         var pizzaWingAnimation = SKAction.repeatActionForever(SKAction.animateWithTextures(pizzaWingList, timePerFrame: 0.2, resize: false, restore: true))
         self.pizzaWing.runAction(pizzaWingAnimation)
         
-        //self.addChild(self.pizzaWing)
+        self.addChild(self.pizzaWing)
         
         /*pizza legs___________________________________________________*/
         self.pizzaLegs.size = size
@@ -122,7 +128,7 @@ class PlayScene: SKScene {
         var pizzaRocketAnimation = SKAction.repeatActionForever(SKAction.animateWithTextures(pizzaRocketList, timePerFrame: 0.2, resize: false, restore: true))
         self.pizzaRocket.runAction(pizzaRocketAnimation)
         
-        self.addChild(pizzaRocket)
+        //self.addChild(pizzaRocket)
         
         
         /* austin_____________________________________________________ */
@@ -232,8 +238,7 @@ class PlayScene: SKScene {
         
         
         var pizza = SKSpriteNode(imageNamed: "pizza")
-        
-        
+        self.trackPizza = pizza
         pizza.setScale(0.7)
         
         pizza.physicsBody = SKPhysicsBody(texture: pizza.texture, size: pizza.size)
@@ -261,6 +266,12 @@ class PlayScene: SKScene {
         
     }
     
+    
+    func spawnPizzas() {
+        
+    }
+
+    
     override func update(currentTime: NSTimeInterval) {
         if self.runningBar.position.x <= maxBarX {
             self.runningBar.position.x = self.origRunningBarPosition
@@ -273,22 +284,47 @@ class PlayScene: SKScene {
         
         var boxList = [self.pizzaWing, self.pizzaLegs, self.pizzaRocket]
         
-        
-        
-        var moveWing = SKAction.moveTo(CGPointMake(-300, pizzaWing.position.y), duration: 5)
-        self.pizzaWing.runAction(moveWing)
-        
         var moveLegs = SKAction.moveTo(CGPointMake(-300, pizzaLegs.position.y), duration: 5)
         self.pizzaLegs.runAction(moveLegs)
         
-        var moveRocket = SKAction.moveTo(CGPointMake(-300, pizzaLegs.position.y), duration: 5)
-        self.pizzaRocket.runAction(moveLegs)
+        var moveRocket = SKAction.moveTo(CGPointMake(-300, pizzaRocket.position.y), duration: 5)
+        self.pizzaRocket.runAction(moveRocket)
         
         var moveAustin = SKAction.moveTo(CGPointMake(100,100), duration: 0.1)
         self.austin.runAction(moveAustin)
         
         if austin.position == CGPointMake(100, 100) && self.austinPositioned == false {
             self.austinPositioned = true
+        }
+        
+        if austin.position == CGPointMake(100, 100) && self.austinPositioned2 == false {
+            println("GO")
+            self.austinPositioned2 = true
+            var moveWing = SKAction.moveTo(CGPointMake(-300, pizzaWing.position.y), duration: 5)
+            self.pizzaWing.runAction(moveWing)
+        }
+        
+        if self.trackPizza.position.x < self.austin.position.x {
+            self.trackPizza.position = CGPointMake(300, 300)
+            self.trackPizza.removeFromParent()
+            self.points += 1
+        }
+        
+        if self.trackPizza.position.y < self.frame.minY || self.trackPizza.position.x > self.frame.maxX {
+            println(self.points)
+            
+            self.trackPizza.position = CGPointMake(100, 100)
+            self.trackPizza.removeFromParent()
+            var loseScreen = ScoreScreen()
+            loseScreen.size = self.size
+            let skView = self.view
+            skView?.ignoresSiblingOrder = true
+            loseScreen.scaleMode = .ResizeFill
+            
+            
+            var reveal = SKTransition.fadeWithColor(UIColor.whiteColor(), duration: 0.5)
+            
+            skView?.presentScene(loseScreen, transition: reveal)
         }
         
         
