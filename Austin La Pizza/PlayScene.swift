@@ -57,6 +57,10 @@ class PlayScene: SKScene {
     /*SCORE*/
     let scoreLabel = SKLabelNode(fontNamed: "Arial")
     
+    /*TIME BEFORE START*/
+    let readyLabel = SKLabelNode(fontNamed: "Arial")
+    let goLabel = SKLabelNode(fontNamed: "Arial")
+    var readyLabelPositioned = false
     
     
     /*Randomize Arrays*/
@@ -309,17 +313,22 @@ class PlayScene: SKScene {
             self.background.position.x = self.origBackgroundPosition
         } */
         
-        
-        
-        
-        
         var moveAustin = SKAction.moveTo(CGPointMake(100,100), duration: 0.1)
         self.austin.runAction(moveAustin)
         
+        if austin.position != CGPointMake(100, 100) && self.readyLabelPositioned == false {
+            self.readyLabelPositioned = true
+            self.readyLabel.fontSize = 35
+            self.readyLabel.fontColor = SKColor.blackColor()
+            self.readyLabel.text = "READY..."
+            self.readyLabel.position = CGPoint(x: frame.size.width / 2, y: size.height - (150 + readyLabel.frame.size.height/2))
+            addChild(readyLabel)
+        }
         
         //austin positioned
         if austin.position == CGPointMake(100, 100) && self.austinPositioned == false {
             self.austinPositioned = true
+            self.readyLabel.removeFromParent()
             beginScore()
             spawnPizzas()
         }
