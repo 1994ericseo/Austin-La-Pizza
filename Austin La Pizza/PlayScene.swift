@@ -61,6 +61,8 @@ class PlayScene: SKScene {
     let readyLabel = SKLabelNode(fontNamed: "Arial")
     let goLabel = SKLabelNode(fontNamed: "Arial")
     var readyLabelPositioned = false
+    var goLabelPositioned = false
+    var goLabelTime = 0
     
     
     /*Randomize Arrays*/
@@ -315,6 +317,14 @@ class PlayScene: SKScene {
         /*if self.background.position.x <= maxBackgroundX {
             self.background.position.x = self.origBackgroundPosition
         } */
+        if self.goLabelPositioned == true {
+            self.goLabelTime += 1
+        }
+        
+        if self.goLabelTime == 50 {
+            self.goLabel.removeFromParent()
+            self.goLabelPositioned = false
+        }
         
         var moveAustin = SKAction.moveTo(CGPointMake(100,100), duration: 0.1)
         self.austin.runAction(moveAustin)
@@ -331,6 +341,13 @@ class PlayScene: SKScene {
         //austin positioned
         if austin.position == CGPointMake(100, 100) && self.austinPositioned == false {
             self.austinPositioned = true
+            self.readyLabelPositioned = true
+            self.goLabel.fontSize = 35
+            self.goLabel.fontColor = SKColor.blackColor()
+            self.goLabel.text = "GO!"
+            self.goLabel.position = CGPoint(x: frame.size.width / 2, y: size.height - (150 + goLabel.frame.size.height/2))
+            addChild(goLabel)
+            self.goLabelPositioned = true
             self.readyLabel.removeFromParent()
             beginScore()
             spawnPizzas()
