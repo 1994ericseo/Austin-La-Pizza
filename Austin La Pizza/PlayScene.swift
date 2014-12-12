@@ -372,6 +372,8 @@ class PlayScene: SKScene {
             self.trackPizza.position = CGPointMake(100, 100)
             self.trackPizza.removeFromParent()
             var loseScreen = ScoreScreen()
+            loseScreen.score = self.points
+            loseScreen.newHighScore()
             loseScreen.size = self.size
             let skView = self.view
             skView?.ignoresSiblingOrder = true
