@@ -63,8 +63,8 @@ class PlayScene: SKScene {
     let scoreLabel = SKLabelNode(fontNamed: "Arial")
     
     /*TIME BEFORE START*/
-    let readyLabel = SKLabelNode(fontNamed: "Arial")
-    let goLabel = SKLabelNode(fontNamed: "Arial")
+    let readyLabel = SKSpriteNode(imageNamed: "ready")
+    let goLabel = SKSpriteNode(imageNamed: "go")
     var readyLabelPositioned = false
     var goLabelPositioned = false
     var goLabelTime = 0
@@ -277,14 +277,18 @@ class PlayScene: SKScene {
             self.pizzaWing.runAction(pizzaWingAnimation, withKey: "animation1")
             
             var pizzaWingsCopy = self.pizzaWing.copy() as SKSpriteNode
+
+
             self.trackBox = pizzaWingsCopy
             self.legs = false
+
+            var moveWing = SKAction.moveTo(CGPointMake(-300, pizzaWingsCopy.position.y), duration: 5)
+            pizzaWingsCopy.runAction(moveWing)
             
             
             self.addChild(pizzaWingsCopy)
             
-            var moveWing = SKAction.moveTo(CGPointMake(-300, pizzaWingsCopy.position.y), duration: 5)
-            pizzaWingsCopy.runAction(moveWing)
+            
         }
         
         /*pizza legs___________________________________________________*/
@@ -300,13 +304,16 @@ class PlayScene: SKScene {
             self.pizzaLegs.runAction(pizzaLegAnimation, withKey: "animation1" )
             
             var pizzaLegsCopy = self.pizzaLegs.copy() as SKSpriteNode
+
             self.trackBox = pizzaLegsCopy
             self.legs = true
             
-            self.addChild(pizzaLegsCopy)
-            
             var moveLegs = SKAction.moveTo(CGPointMake(-300, pizzaLegsCopy.position.y), duration: 5)
             pizzaLegsCopy.runAction(moveLegs)
+
+            self.addChild(pizzaLegsCopy)
+            
+            
         }
             
         
@@ -379,9 +386,7 @@ class PlayScene: SKScene {
         
         if austin.position != CGPointMake(100, 100) && self.readyLabelPositioned == false {
             self.readyLabelPositioned = true
-            self.readyLabel.fontSize = 35
-            self.readyLabel.fontColor = SKColor.blackColor()
-            self.readyLabel.text = "READY..."
+            self.readyLabel.size = CGSizeMake(150, 100)
             self.readyLabel.position = CGPoint(x: frame.size.width / 2, y: size.height - (150 + readyLabel.frame.size.height/2))
             addChild(readyLabel)
         }
@@ -390,9 +395,7 @@ class PlayScene: SKScene {
         if austin.position == CGPointMake(100, 100) && self.austinPositioned == false {
             self.austinPositioned = true
             self.readyLabelPositioned = true
-            self.goLabel.fontSize = 35
-            self.goLabel.fontColor = SKColor.blackColor()
-            self.goLabel.text = "GO!"
+            self.goLabel.size = CGSizeMake(150, 100)
             self.goLabel.position = CGPoint(x: frame.size.width / 2, y: size.height - (150 + goLabel.frame.size.height/2))
             addChild(goLabel)
             self.goLabelPositioned = true
