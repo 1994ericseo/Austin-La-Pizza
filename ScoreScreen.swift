@@ -12,7 +12,7 @@ class ScoreScreen: SKScene {
     var score = 0
     let replayButton = SKSpriteNode(imageNamed: "replay")
     let goHomeButton = SKSpriteNode(imageNamed: "home")
-    let gameOverBanner = SKSpriteNode(imageNamed: "GameOver")
+    //let gameOverBanner = SKSpriteNode(imageNamed: "GameOver")
     let scoreLabel = SKLabelNode(fontNamed: "Arial")
     let highScoreLabel = SKLabelNode(fontNamed: "Arial")
 
