@@ -35,6 +35,7 @@ class PlayScene: SKScene {
     
     
     
+    
     /*BACKGROUND + RUNNING BAR/GROUND*/
     let background = SKSpriteNode(imageNamed: "gameBackground")
     let runningBar = SKSpriteNode(imageNamed: "Bar")
@@ -65,11 +66,9 @@ class PlayScene: SKScene {
     var goLabelTime = 0
     
     
-    /*Randomize Arrays*/
-    
-    
-    
+    /*keep track*/
     var trackPizza = SKSpriteNode()
+    var trackBox = SKSpriteNode()
     
     
     override func didMoveToView(view: SKView) {
@@ -265,6 +264,8 @@ class PlayScene: SKScene {
             self.pizzaWing.runAction(pizzaWingAnimation)
             
             var pizzaWingsCopy = self.pizzaWing.copy() as SKSpriteNode
+            self.trackBox = pizzaWingsCopy
+            
             
             self.addChild(pizzaWingsCopy)
             
@@ -285,6 +286,7 @@ class PlayScene: SKScene {
             self.pizzaLegs.runAction(pizzaLegAnimation)
             
             var pizzaLegsCopy = self.pizzaLegs.copy() as SKSpriteNode
+            self.trackBox = pizzaLegsCopy
             
             self.addChild(pizzaLegsCopy)
             
