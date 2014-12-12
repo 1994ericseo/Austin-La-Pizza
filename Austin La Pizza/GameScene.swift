@@ -41,16 +41,16 @@ class GameScene: SKScene {
         
         
         self.playButton.size = CGSizeMake(70, 70)
-        self.playButton.position = CGPointMake(-33, 50)
+        self.playButton.position = CGPointMake(-33, 80)
         
         self.banner.size = CGSizeMake(900, 500)
         self.banner.position = CGPointMake(CGRectGetMidX(self.frame)+20, CGRectGetMidY(self.frame)+30)
         
         self.highscore.size = CGSizeMake(70, 70)
-        self.highscore.position = CGPointMake(CGRectGetMaxX(self.frame)+33, 50)
+        self.highscore.position = CGPointMake(CGRectGetMaxX(self.frame)+33, 80)
         
-        var moveAction1 = SKAction.moveTo(CGPointMake(CGRectGetMidX(self.frame) - 38, 50), duration: 0.7)
-        var moveAction2 = SKAction.moveTo(CGPointMake(CGRectGetMidX(self.frame) + 38, 50), duration: 0.7)
+        var moveAction1 = SKAction.moveTo(CGPointMake(CGRectGetMidX(self.frame) - 38, 80), duration: 0.7)
+        var moveAction2 = SKAction.moveTo(CGPointMake(CGRectGetMidX(self.frame) + 38, 80), duration: 0.7)
         
         
         self.banner.alpha = 0.0
@@ -98,7 +98,7 @@ class GameScene: SKScene {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        if self.playButton.position == CGPointMake(CGRectGetMidX(self.frame) - 38, 50) {
+        if self.playButton.position == CGPointMake(CGRectGetMidX(self.frame) - 38, 80) {
             
             var fadeAction = SKAction.fadeAlphaTo(1, duration: 0.7)
         
