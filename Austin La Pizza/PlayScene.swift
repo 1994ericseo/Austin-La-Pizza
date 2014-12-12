@@ -142,9 +142,12 @@ class PlayScene: SKScene {
                 
                 self.replayButton.size = CGSizeMake(70, 70)
                 self.replayButton.position = CGPointMake(CGRectGetMidX(self.frame) - 40, 70)
+                self.replayButton.zPosition += self.replayButton.zPosition + 2
                 
                 self.goHomeButton.size = CGSizeMake(70, 70)
                 self.goHomeButton.position = CGPointMake(CGRectGetMidX(self.frame) + 40, 70)
+                self.goHomeButton.zPosition += self.goHomeButton.zPosition + 2
+                
                 
                 self.addChild(goHomeButton)
                 self.addChild(replayButton)
