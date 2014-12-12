@@ -60,6 +60,8 @@
 		ADB329BF1A3A6A7900E43D55 /* pizzaWing3.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB329B31A3A6A7900E43D55 /* pizzaWing3.png */; };
 		ADB329C01A3A6A7900E43D55 /* pizzaWing4_2.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB329B41A3A6A7900E43D55 /* pizzaWing4_2.png */; };
 		ADB329C11A3A6A7900E43D55 /* pizzaWing4.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB329B51A3A6A7900E43D55 /* pizzaWing4.png */; };
+		ADB329C31A3A767E00E43D55 /* go.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB329C21A3A767E00E43D55 /* go.png */; };
+		ADB329C51A3A768900E43D55 /* ready.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB329C41A3A768900E43D55 /* ready.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +132,8 @@
 		ADB329B31A3A6A7900E43D55 /* pizzaWing3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pizzaWing3.png; sourceTree = "<group>"; };
 		ADB329B41A3A6A7900E43D55 /* pizzaWing4_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pizzaWing4_2.png; sourceTree = "<group>"; };
 		ADB329B51A3A6A7900E43D55 /* pizzaWing4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pizzaWing4.png; sourceTree = "<group>"; };
+		ADB329C21A3A767E00E43D55 /* go.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = go.png; sourceTree = "<group>"; };
+		ADB329C41A3A768900E43D55 /* ready.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ready.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,7 +254,9 @@
 				ADB329AC1A3A6A7900E43D55 /* pizzaLegs4_2.png */,
 				ADB329AD1A3A6A7900E43D55 /* pizzaLegs4.png */,
 				ADB329AE1A3A6A7900E43D55 /* pizzaRocket3_2.png */,
+				ADB329C41A3A768900E43D55 /* ready.png */,
 				ADB329AF1A3A6A7900E43D55 /* pizzaRocket3.png */,
+				ADB329C21A3A767E00E43D55 /* go.png */,
 				ADB329B01A3A6A7900E43D55 /* pizzaRocket4_2.png */,
 				ADB329B11A3A6A7900E43D55 /* pizzaRocket4.png */,
 				ADB329B21A3A6A7900E43D55 /* pizzaWing3_2.png */,
@@ -359,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD71EBD01A31CBAB005CBF44 /* LaunchScreen.xib in Resources */,
+				ADB329C51A3A768900E43D55 /* ready.png in Resources */,
 				AD71EBF41A33C0AB005CBF44 /* bar.png in Resources */,
 				ADB329A51A390B8F00E43D55 /* pause.png in Resources */,
 				AD71EC221A378AC3005CBF44 /* pause.png in Resources */,
@@ -393,6 +400,7 @@
 				ADB329BA1A3A6A7900E43D55 /* pizzaRocket3_2.png in Resources */,
 				AD71EBCB1A31CBAB005CBF44 /* Main.storyboard in Resources */,
 				ADB329BE1A3A6A7900E43D55 /* pizzaWing3_2.png in Resources */,
+				ADB329C31A3A767E00E43D55 /* go.png in Resources */,
 				ADB3299C1A38530A00E43D55 /* ground1.png in Resources */,
 				ADB329B81A3A6A7900E43D55 /* pizzaLegs4_2.png in Resources */,
 				AD71EBE81A327345005CBF44 /* banner.png in Resources */,

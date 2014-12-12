@@ -27,12 +27,16 @@ class PlayScene: SKScene {
     let pizzaWing = SKSpriteNode(imageNamed: "pizzaWing1")
     let pizzaWingTxt1 = SKTexture(imageNamed: "pizzaWing1")
     let pizzaWingTxt2 = SKTexture(imageNamed: "pizzaWing2")
+    let pizzaWingTxt3 = SKTexture(imageNamed: "pizzaWing3")
+    let pizzaWingTxt4 = SKTexture(imageNamed: "pizzaWing4")
+    
     
     /*PIZZA LEGS*/
     let pizzaLegs = SKSpriteNode(imageNamed: "pizzaLegs1")
     let pizzaLegsTxt1 = SKTexture(imageNamed: "pizzaLegs1")
     let pizzaLegsTxt2 = SKTexture(imageNamed: "pizzaLegs2")
-    
+    let pizzaLegsTxt3 = SKTexture(imageNamed: "pizzaLegs3")
+    let pizzaLegsTxt4 = SKTexture(imageNamed: "pizzaLegs4")
     
     
     
@@ -69,6 +73,7 @@ class PlayScene: SKScene {
     /*keep track*/
     var trackPizza = SKSpriteNode()
     var trackBox = SKSpriteNode()
+    var legs = false
     
     
     override func didMoveToView(view: SKView) {
@@ -237,6 +242,14 @@ class PlayScene: SKScene {
     }
     
     
+    
+    
+    
+    
+    
+    
+    
+    
     func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat{
         return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
     }
@@ -261,10 +274,11 @@ class PlayScene: SKScene {
             
             var pizzaWingList = [self.pizzaWingTxt1, self.pizzaWingTxt2]
             var pizzaWingAnimation = SKAction.repeatActionForever(SKAction.animateWithTextures(pizzaWingList, timePerFrame: 0.2, resize: false, restore: true))
-            self.pizzaWing.runAction(pizzaWingAnimation)
+            self.pizzaWing.runAction(pizzaWingAnimation, withKey: "animation1")
             
             var pizzaWingsCopy = self.pizzaWing.copy() as SKSpriteNode
             self.trackBox = pizzaWingsCopy
+            self.legs = false
             
             
             self.addChild(pizzaWingsCopy)
@@ -283,10 +297,11 @@ class PlayScene: SKScene {
             
             var pizzaLegList = [self.pizzaLegsTxt1, self.pizzaLegsTxt2]
             var pizzaLegAnimation = SKAction.repeatActionForever(SKAction.animateWithTextures(pizzaLegList, timePerFrame: 0.2, resize: false, restore: true))
-            self.pizzaLegs.runAction(pizzaLegAnimation)
+            self.pizzaLegs.runAction(pizzaLegAnimation, withKey: "animation1" )
             
             var pizzaLegsCopy = self.pizzaLegs.copy() as SKSpriteNode
             self.trackBox = pizzaLegsCopy
+            self.legs = true
             
             self.addChild(pizzaLegsCopy)
             
@@ -310,6 +325,37 @@ class PlayScene: SKScene {
     
     func updateScore() {
         self.scoreLabel.text = NSString(format: "%u", self.points)
+    }
+    
+    func closePizza() {
+        self.trackBox.removeActionForKey("animation1")
+        
+        var legList = [self.pizzaLegsTxt3, self.pizzaLegsTxt4]
+        var wingList = [self.pizzaWingTxt3, self.pizzaWingTxt4]
+        
+        var action = SKAction()
+        
+        
+        //var action = SKAction.repeatActionForever(SKAction.animateWithTextures(austinList, timePerFrame: 0.2, resize: false, restore: true))
+        
+        if legs == true {
+            action = SKAction.animateWithTextures(legList, timePerFrame: 0.1)
+        }
+            
+        else {
+            action = SKAction.animateWithTextures(wingList, timePerFrame: 0.1)
+        }
+        
+        self.trackBox.runAction(action)
+        
+    }
+    
+    func lose() -> Bool {
+        if self.legs == true {
+            
+        }
+        
+        return false
     }
     
     override func update(currentTime: NSTimeInterval) {
@@ -358,9 +404,11 @@ class PlayScene: SKScene {
         
         //scored!
         if self.trackPizza.position.x < self.austin.position.x {
+            
             self.trackPizza.position = CGPointMake(300, 300)
             self.trackPizza.removeFromParent()
             self.points += 1
+            closePizza()
             updateScore()
             spawnPizzas()
         }
