@@ -246,8 +246,8 @@ class PlayScene: SKScene {
         
         let size = CGSizeMake(164, 164)
         
-        var whichBox = 0 + Int(arc4random_uniform(UInt32(1 - 0 + 1)))
-        var boxList = [self.pizzaWing, self.pizzaLegs]
+        var whichBox = 0 + Int(arc4random_uniform(UInt32(9 - 0 + 1)))
+        var boxList = [self.pizzaWing, self.pizzaWing, self.pizzaWing, self.pizzaWing, self.pizzaWing, self.pizzaWing, self.pizzaWing, self.pizzaWing, self.pizzaLegs, self.pizzaLegs]
         
         var newBox = boxList[whichBox]
         var y = randomBetweenNumbers(100.0, secondNum: CGRectGetMaxY(self.frame)-50.0)
