@@ -280,6 +280,7 @@ class PlayScene: SKScene {
 
 
             self.trackBox = newBox
+            self.legs = false
             
 
             var moveWing = SKAction.moveTo(CGPointMake(-300, newBox.position.y), duration: 5)
@@ -307,6 +308,7 @@ class PlayScene: SKScene {
             
 
             self.trackBox = newBox
+            self.legs = true
             
             
             var moveLegs = SKAction.moveTo(CGPointMake(-300, newBox.position.y), duration: 5)
@@ -346,7 +348,7 @@ class PlayScene: SKScene {
         
         //var action = SKAction.repeatActionForever(SKAction.animateWithTextures(austinList, timePerFrame: 0.2, resize: false, restore: true))
         
-        if legs == true {
+        if self.legs == true {
             action = SKAction.animateWithTextures(legList, timePerFrame: 0.1)
         }
             
@@ -371,9 +373,6 @@ class PlayScene: SKScene {
         skView?.presentScene(loseScreen, transition: reveal)
     }
     
-    func didBeginContact(contact: SKPhysicsContact!) {
-        
-    }
     
     override func update(currentTime: NSTimeInterval) {
         if self.runningBar.position.x <= maxBarX {
@@ -416,7 +415,7 @@ class PlayScene: SKScene {
         
         
         //scored!
-        if self.trackPizza.position.x < self.austin.position.x && self.trackBox.physicsBody?.allContactedBodies().count == 1 {
+        if self.trackBox.position.x < self.austin.position.x && self.trackBox.physicsBody?.allContactedBodies().count >= 1 {
             self.trackPizza.position = CGPointMake(300, 300)
             self.trackPizza.removeFromParent()
             self.points += 1
@@ -426,6 +425,8 @@ class PlayScene: SKScene {
             spawnPizzas()
             
         }
+        
+        //self.trackPizza.physicsBody.al
         
         //LOSE CASE 1
         if self.trackPizza.position.y < self.frame.minY || self.trackPizza.position.x > self.frame.maxX {
