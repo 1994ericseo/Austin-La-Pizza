@@ -280,7 +280,7 @@ class PlayScene: SKScene {
 
 
             self.trackBox = newBox
-            self.legs = false
+            
 
             var moveWing = SKAction.moveTo(CGPointMake(-300, newBox.position.y), duration: 5)
             newBox.runAction(moveWing)
@@ -299,6 +299,7 @@ class PlayScene: SKScene {
             newBox.physicsBody?.affectedByGravity = false
             newBox.physicsBody?.dynamic = false
             
+            
             var pizzaLegList = [self.pizzaLegsTxt1, self.pizzaLegsTxt2]
             var pizzaLegAnimation = SKAction.repeatActionForever(SKAction.animateWithTextures(pizzaLegList, timePerFrame: 0.2, resize: false, restore: true))
             newBox.runAction(pizzaLegAnimation, withKey: "animation1" )
@@ -306,7 +307,7 @@ class PlayScene: SKScene {
             
 
             self.trackBox = newBox
-            self.legs = true
+            
             
             var moveLegs = SKAction.moveTo(CGPointMake(-300, newBox.position.y), duration: 5)
             newBox.runAction(moveLegs)
@@ -357,12 +358,21 @@ class PlayScene: SKScene {
         
     }
     
-    func lose() -> Bool {
-        if self.legs == true {
-            
-        }
+    func lose() {
+        var loseScreen = ScoreScreen()
+        loseScreen.score = self.points
+        loseScreen.newHighScore()
+        loseScreen.size = self.size
+        let skView = self.view
+        skView?.ignoresSiblingOrder = true
+        loseScreen.scaleMode = .ResizeFill
+        var reveal = SKTransition.fadeWithColor(UIColor.whiteColor(), duration: 0.5)
         
-        return false
+        skView?.presentScene(loseScreen, transition: reveal)
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact!) {
+        
     }
     
     override func update(currentTime: NSTimeInterval) {
@@ -406,8 +416,7 @@ class PlayScene: SKScene {
         
         
         //scored!
-        if self.trackPizza.position.x < self.austin.position.x {
-            
+        if self.trackPizza.position.x < self.austin.position.x && self.trackBox.physicsBody?.allContactedBodies().count == 1 {
             self.trackPizza.position = CGPointMake(300, 300)
             self.trackPizza.removeFromParent()
             self.points += 1
@@ -415,31 +424,24 @@ class PlayScene: SKScene {
             closePizza()
             updateScore()
             spawnPizzas()
+            
         }
         
-        //LOSE!
+        //LOSE CASE 1
         if self.trackPizza.position.y < self.frame.minY || self.trackPizza.position.x > self.frame.maxX {
             self.trackPizza.position = CGPointMake(100, 100)
             self.trackPizza.removeFromParent()
-            var loseScreen = ScoreScreen()
-            loseScreen.score = self.points
-            loseScreen.newHighScore()
-            loseScreen.size = self.size
-            let skView = self.view
-            skView?.ignoresSiblingOrder = true
-            loseScreen.scaleMode = .ResizeFill
-            
-            
-            var reveal = SKTransition.fadeWithColor(UIColor.whiteColor(), duration: 0.5)
-            
-            skView?.presentScene(loseScreen, transition: reveal)
+            lose()
+        }
+        
+        //LOSE CASE 2
+        if self.trackBox.position.x < self.austin.position.x - 20 && self.trackBox.physicsBody?.allContactedBodies().count == 0 {
+            self.trackBox.position = CGPointMake(300, 300)
+            self.trackBox.removeFromParent()
+            lose()
         }
         
         
-        
-        
-        //move the background
-        //background.position.x -= CGFloat(self.backgroundSpeed)
         
         //move the ground
         if self.scene?.paused == false {
