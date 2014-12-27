@@ -17,6 +17,9 @@ class GameScene: SKScene {
     let game = PlayScene()
     let score = HighScoreScreen()
     
+    let poop = PlayScene()
+    //this is a test
+    
     
 
     
