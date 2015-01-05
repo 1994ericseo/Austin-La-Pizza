@@ -75,6 +75,8 @@ class PlayScene: SKScene {
     var trackBox = SKSpriteNode()
     var legs = false
     var throwNumber = 0
+    var gamePaused = false
+    
     
     
     override func didMoveToView(view: SKView) {
@@ -138,6 +140,40 @@ class PlayScene: SKScene {
 
     }
     
+    func pause_game() {
+        self.pauseButton.texture = self.playButton
+        
+        self.replayButton.size = CGSizeMake(70, 70)
+        self.replayButton.position = CGPointMake(CGRectGetMidX(self.frame) - 40, 70)
+        self.replayButton.zPosition += self.replayButton.zPosition + 2
+        
+        self.goHomeButton.size = CGSizeMake(70, 70)
+        self.goHomeButton.position = CGPointMake(CGRectGetMidX(self.frame) + 40, 70)
+        self.goHomeButton.zPosition += self.goHomeButton.zPosition + 2
+        
+        
+        self.addChild(goHomeButton)
+        self.addChild(replayButton)
+        
+        //switch to play button
+        
+        self.gamePaused = true
+        self.view?.scene?.paused = true
+    }
+    
+    func resume_game() {
+        //switch to pause button
+        self.goHomeButton.removeFromParent()
+        self.replayButton.removeFromParent()
+        
+        self.pauseButton.texture = self.pauseTexture
+        self.gamePaused = false
+        self.view?.scene?.paused = false
+    }
+    
+    
+    
+    
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         self.touchDuration = NSDate()
         for touch: AnyObject in touches {
@@ -145,34 +181,13 @@ class PlayScene: SKScene {
             if self.nodeAtPoint(location) == self.pauseButton && self.view?.scene?.paused == false {
                 
                 
-                self.pauseButton.texture = self.playButton
-                
-                self.replayButton.size = CGSizeMake(70, 70)
-                self.replayButton.position = CGPointMake(CGRectGetMidX(self.frame) - 40, 70)
-                self.replayButton.zPosition += self.replayButton.zPosition + 2
-                
-                self.goHomeButton.size = CGSizeMake(70, 70)
-                self.goHomeButton.position = CGPointMake(CGRectGetMidX(self.frame) + 40, 70)
-                self.goHomeButton.zPosition += self.goHomeButton.zPosition + 2
-                
-                
-                self.addChild(goHomeButton)
-                self.addChild(replayButton)
-                
-                //switch to play button
-                
-                self.view?.scene?.paused = true
+                self.pause_game()
                 
                 
             }
             else if self.nodeAtPoint(location) == self.pauseButton && self.view?.scene?.paused == true {
                 
-                //switch to pause button
-                self.goHomeButton.removeFromParent()
-                self.replayButton.removeFromParent()
-                
-                self.pauseButton.texture = self.pauseTexture
-                self.view?.scene?.paused = false
+                self.resume_game()
                 
                 
             }

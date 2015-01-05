@@ -26,10 +26,13 @@ extension SKNode {
 }
 
 class GameViewController: UIViewController {
-    let background = SKSpriteNode(imageNamed: "gameBackground")
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             // Configure the view.
@@ -49,6 +52,9 @@ class GameViewController: UIViewController {
             skView.presentScene(scene)
         }
     }
+    
+    
+    
 
     override func shouldAutorotate() -> Bool {
         return true
