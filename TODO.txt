@@ -1,0 +1,7 @@
+Austin La Pizza TO DO:
+- Scale universally
+- Fix pause error
+- Add how-to-play animation in title screen
+- Change high score fonts
+- Make Austin smile when he gets a pizza in the box
+- Sound effects (clicking the menu buttons, throwing the pizzas / getting them in the box, etc)
